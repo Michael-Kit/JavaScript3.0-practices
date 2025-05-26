@@ -24,6 +24,7 @@
 // книги без обмежень, вона повинна купити підписку “pro” за 100$ на рік.
 // Це простий приклад розгалуження, у якому наявність підписки “pro” — це умова, а різні варіанти завантажень
 // (з обмеженням чи без) — це розгалуження подальших сценаріїв.
+
 // let price = 0;
 // const subscription = "pro";
 
@@ -36,8 +37,7 @@
 // ? Приклад 2
 //? Напишемо функцію яка отримує обраний тарифний план у параметрі subscription та повертає його вартість.
 
-// let price = 0;
-// const subscription = "pro";
+
 // function getPrice(subscription) {
 //   let price = 0;
 
@@ -48,12 +48,19 @@
 //   return price;
 // }
 
-// console.log(getPrice(free)); // 0
-// console.log(getPrice(pro)); // 100
+// console.log(getPrice("free")); // 0
+// console.log(getPrice("pro")); // 100
 
 // ? Приклад 3
 // Enhance the checkAge(age) function code so that the function returns the string "You are an adult" if the value of the
-//  age parameter is greater than or equal to 18. Use an if statement in the function body to check the value of age.
+// age parameter is greater than or equal to 18. Use an if statement in the function body to check the value of age.
+
+// The checkAge(age) function is declared.
+// The call checkAge(20) returns the string "You are an adult".
+// The call checkAge(17) returns undefined.
+// The call checkAge(10) returns undefined.
+// The call checkAge(30) returns the string "You are an adult".
+// A call to the function with random but valid arguments returns the correct value.
 
 // function checkAge(age) {
 //   if (age >= 18) {
@@ -68,7 +75,8 @@
 
 // ? Приклад 4
 
-// Функція checkAccess(role) Розроби функцію, яка приймає рядок role та перевіряє, чи користувач має доступ.Якщо role дорівнює "admin", поверни "Access granted",
+// Функція checkAccess(role) Розроби функцію, яка приймає рядок role та перевіряє, чи користувач має доступ.Якщо role
+//  дорівнює "admin", поверни "Access granted",
 //   інакше поверни "Access denied".
 
 // function checkAccess(role) {
@@ -101,9 +109,9 @@
 // ? Синтаксис інструкції if можна доповнити блоком else для визначення альтернативних варіантів виконання коду.
 
 // if (condition) {
-//   // код, який виконується, якщо умова істинна
+  // код, який виконується, якщо умова істинна
 // } else {
-//   // код, який виконується, якщо умова хибна
+  // код, який виконується, якщо умова хибна
 // }
 
 // У наступному прикладі умова перетворюється до true, тому виконується код у тілі (фігурних дужках) блоку if, а тіло блоку else ігнорується.
@@ -138,27 +146,32 @@
 // console.log(checkGrade(40)); // Unsatisfactory
 // console.log(checkGrade(75)); // Satisfactory
 
+// Task:
+// The checkStorage(available, ordered) function checks the feasibility of placing an order and returns a message about the result.It declares two parameters,
+//   the values of which will be provided during its invocation:
 
+// available — the available quantity of goods in stock.
+// ordered — quantity of units of goods in the order.
+// Using branching, enhance the function code so that:
+// f the order quantity exceeds the available stock, the function returns the string "Not enough goods in stock!".
+// Otherwise, the function returns the string "Order is processed, our manager will contact you".
+// The checkStorage(available, ordered) function is declared.
 
-
-
-// Функція checkTemperature(temp) Функція приймає температуру temp і повертає "It's hot" якщо вона більше або дорівнює 30,
-// "It's cold" якщо вона менше 15, і "It's moderate" в інших випадках.
-  
-// function checkTemperature(temp) {
-//   if (temp >= 30) {
-//     return "It's hot";
-//   } else if (temp < 15) {
-//     return "It's cold";
+// function checkStorage(available, ordered) {
+//   if (available >= ordered) {
+//     return "Order is processed, our manager will contact you";
 //   } else {
-//     return "It's moderate";
+//     return "Not enough goods in stock!";
 //   }
 // }
 
-// console.log(checkTemperature(35)); // "It's hot"
-// console.log(checkTemperature(10)); // "It's cold"
-// console.log(checkTemperature(20)); // "It's moderate"
-// console.log(checkTemperature(15)); // "It's moderate"
+
+// console.log(checkStorage(100, 50));// "Order is processed, our manager will contact you".
+// console.log(checkStorage(100, 130))// "Not enough goods in stock!"
+// console.log(checkStorage(200, 20));// "Order is processed, our manager will contact you".
+// console.log(checkStorage(200, 150));// "Order is processed, our manager will contact you".
+// console.log(checkStorage(150, 180));// "Not enough goods in stock!"
+
 
 // function checkStorage(available, ordered) {
 //   if (ordered > available) {
@@ -188,25 +201,29 @@
 //     return "Insufficient funds";
 //   }
 
-//   console.log(checkBudget(100, 50)); // "Purchase successful!"
-//   console.log(checkBudget(30, 50)); // "Insufficient funds"
-//   console.log(checkBudget(50, 50)); // "Purchase successful!"
+  // console.log(checkBudget(100, 50)); // "Purchase successful!"
+  // console.log(checkBudget(30, 50)); // "Insufficient funds"
+  // console.log(checkBudget(50, 50)); // "Purchase successful!"
 //?Прклад 7
 // Функція checkDiscount(price, discountThreshold) Функція приймає два аргументи: price(ціна товару) та discountThreshold
 //   (мінімальна ціна для отримання знижки).Якщо price більше або дорівнює discountThreshold, поверни "Discount applied!",
 //   інакше "No discount available".
-    
-//   function(price, discountThreshold) {
-//   if (rice >== discountThreshold) { return "Discount applied!"; }
-//   else {return "No discount available"; }
-//    }
-  
-//   console.log(checkDiscount(100, 50)); // "Discount applied!"
+
+// function checkDiscount(price, discountThreshold) {
+//   if (price >= discountThreshold) {
+//     return "Discount applied!";
+//   } else {
+//     return "No discount available";
+//   }
+// }
+
+// console.log(checkDiscount(100, 50)); // "Discount applied!"
 // console.log(checkDiscount(30, 50)); // "No discount available"
   
 //? Приклад 8
 // Функція checkSpeed(speed, speedLimit) Функція приймає два аргументи: speed(швидкість авто) та speedLimit(допустима швидкість).
 //  Якщо speed перевищує speedLimit, поверни "Speeding violation!", інакше "Speed is within limit".
+
 
 // function checkSpeed(speed, speedLimit) {
 //   if (speed > speedLimit) {
@@ -254,6 +271,26 @@
 // console.log(grade(90)); // "Perfectly"
 // console.log(grade(70)); // "Satisfactorily"
 // console.log(grade(60)); // "Unsatisfactorily"
+// Task:
+// The checkStorage(available, ordered) function checks the feasibility of placing an order and returns a message about the result.It declares two parameters,
+// the values of which will be provided during its invocation.
+
+// available — the available quantity of goods in stock.
+// ordered — quantity of units of goods in the order.
+// Using branching, enhance the function code so that:
+
+// If there are no items in the order, meaning the value of the ordered parameter is 0, the function returns the string "There are no products in the order!".
+// If the quantity of items in the order exceeds the available stock, the function returns the string "Your order is too large, there are not enough items in stock!".
+// Otherwise, the function returns the string "The order is accepted, our manager will contact you".
+// The checkStorage(available, ordered) function is declared.
+
+// The call checkStorage(100, 50) returns "The order is accepted, our manager will contact you".
+// The call checkStorage(100, 130) returns "Your order is too large, We haven't enough items in stock!".
+// The call checkStorage(70, 0) returns "There are no products in the order!".
+// The call checkStorage(200, 20) returns "The order is accepted, our manager will contact you".
+// The call checkStorage(200, 250) returns "Your order is too large. We haven't enough items in stock!".
+// The call checkStorage(150, 0) returns "There are no products in the order!".
+// The call checkStorage(80, 80) returns "The order is accepted, our manager will contact you".
 
 // function checkStorage(available, ordered) {
 //   if (ordered === 0) {
@@ -272,6 +309,25 @@
 // console.log(checkStorage(200, 250)); // "Your order is too large, there are not enough items in stock!"
 // console.log(checkStorage(150, 0)); // "There are no products in the order!"
 // console.log(checkStorage(80, 80)); // "The order is accepted, our manager will contact you"
+
+// Функція checkTemperature(temp) Функція приймає температуру temp і повертає "It's hot" якщо вона більше або дорівнює 30,
+// "It's cold" якщо вона менше 15, і "It's moderate" в інших випадках.
+
+// function checkTemperature(temp) {
+//   if (temp >= 30) {
+//     return "It's hot";
+//   } else if (temp < 15) {
+//     return "It's cold";
+//   } else {
+//     return "It's moderate";
+//   }
+// }
+
+// console.log(checkTemperature(35)); // "It's hot"
+// console.log(checkTemperature(10)); // "It's cold"
+// console.log(checkTemperature(20)); // "It's moderate"
+// console.log(checkTemperature(15)); // "It's moderate"
+
 
 // ! Тернарний оператор
 // Тернарний оператор — це коротша синтаксична заміна інструкції if...else. Тернарний оператор дозволяє виконувати
@@ -298,6 +354,14 @@
 // console.log(type); // 'adult'
 
 // ? Той самий код можна переписати з використанням тернарного оператора:
+
+// function type(age) {
+//   return age >= 18 ? "adult" : "child";
+// }
+
+// console.log(type(20));
+// console.log(type(10));
+
 
 // const a = 5;
 // const b = 10;
