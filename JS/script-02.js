@@ -420,7 +420,7 @@
 // Виклик getBiggerNumber(7, 7): 7 > 7 → false, повертається b = 7 (немає різниці, що повертати, бо числа рівні).
 
 // * Приклад 9
-// todo The checkPassword(password) function compares the provided password(parameter password) with the stored administrator password
+// todo The checkPassword(password) function compares the provided password(parameter password) with the stored administratorpassword
 // todo (correctPassword) and returns a message indicating the result. Using the ternary operator, enhance the function so that:
 // todo If the values of password and correctPassword match, the function returns the string "Access granted".
 // todo Otherwise, the function returned the string "Access denied, wrong password!".
@@ -434,6 +434,7 @@
 //   console.log(checkPassword("r3actsux")); // "Access denied, wrong password!"
 
 //! Оператор switch
+
 // Оператор switch дозволяє виконувати різні дії залежно від значення виразу.Використання switch є більш компактним і зручним
 // способом для порівняння виразів з кількома варіантами, ніж інструкції if...else та else...if.
 
@@ -505,7 +506,8 @@
 //  виконається один і той самий код, тому що між ними немає операторів break.
  
 // todo Приклад 10
-//todo The getSubscriptionPrice(type) function receives a string representing the user's subscription type (parameter type), checks it against three possible types of monthly subscriptions, and returns the price or a message indicating an incorrect subscription type.
+//todo The getSubscriptionPrice(type) function receives a string representing the user's subscription type (parameter type), checks it against three possible types of
+//monthly subscriptions, and returns the price or a message indicating an incorrect subscription type.
 
 //todo If the value of the type parameter is a string, then:
 
@@ -515,6 +517,7 @@
 //todo For any other value of the type parameter, the string "Invalid subscription type!" is returned.
 
 //todo Use the switch operator to solve this task!
+
 
 // function getSubscriptionPrice(type) {
 //     let price;
@@ -840,6 +843,35 @@
 //*      console.log(isNumberInRange(10, 30, 5)); // false
 //*      console.log(isNumberInRange(20, 50, 24)); // true
 //*      console.log(isNumberInRange(20, 50, 76)); // false
+
+// Ось схожа задачка для тренування:
+// Завдання:
+// Створіть функцію `isEvenInRange(start, end, number)`, яка перевіряє, чи є число **парним** і чи знаходиться воно в заданому числовому діапазоні. У функції оголошуються три параметри:
+
+// - `number` — число, яке перевіряється;
+// - `start` — початок числового діапазону;
+// - `end` — кінець числового діапазону.
+
+// Функція повинна повернути `true`, якщо число є **парним** і знаходиться в межах діапазону (включно), і `false` — якщо ні.
+
+// ### Вимоги:
+// - Використати оператор `&&`;
+// - Використати оператор `%` для перевірки парності;
+// - Функція повинна повертати `true` або`false`.
+
+// function isEvenInRange(start, end, number) {
+//   return number % 2 === 0 && number >= start && number <= end;
+// }
+
+// ### Приклади виклику функції:
+// console.log(isEvenInRange(10, 30, 16)); // true (парне, в межах діапазону)
+// console.log(isEvenInRange(10, 30, 17)); // false (непарне)
+// console.log(isEvenInRange(20, 50, 24)); // true (парне, в межах діапазону)
+// console.log(isEvenInRange(20, 50, 51)); // false (непарне, поза діапазоном)
+// console.log(isEvenInRange(10, 40, 8));  // false (парне, але поза діапазоном)
+
+// Спробуй реалізувати цю функцію самостійно! Якщо треба підказка або пояснення, я тут. 😃
+
     
 //! Логічне «АБО»
 
@@ -892,14 +924,45 @@
 
 //!? Приклад коду
 
+// The checkAccess(subType) function checks if the user can access the content.The verification is based on the type of subscription.Using the "OR" operator,
+// complete the function code so that if the value of the subType parameter is equal to the strings "pro" or "vip", the function returns true and the user
+//  is granted access.Otherwise, it should return false.
+
+// The checkAccess(subType) function is declared.
+// The || operator is used.
+// The call to checkAccess("pro") function returns true.
+// The call to checkAccess("starter") function returns false.
+// The call to checkAccess("vip") function returns true.
+// The call to checkAccess("free") function returns false.
+
 // function checkAccess(subType) {
 //   return subType === "pro" || subType === "vip";
 // }
-  
 // console.log(checkAccess("free")); // false
 // console.log(checkAccess("pro")); // true
 // console.log(checkAccess("vip")); // true
 // console.log(checkAccess("starter")); // false
+
+// Завдання:
+// Створіть функцію isEligibleForDiscount(userType), яка перевіряє, чи має користувач право на знижку.Перевірка базується на типі користувача.
+// Використовуючи оператор ||, завершіть код функції так, щоб якщо значення параметра userType дорівнює рядкам "student" або "senior", функція повертала true,
+// і користувач отримував знижку.В іншому випадку функція повинна повертати false.
+
+// Вимоги:
+// Функція isEligibleForDiscount(userType) оголошена;
+
+// Використовується оператор ||;
+
+// Функція повертає true або false.
+
+// function isEligibleForDiscount(userType) {
+//   return userType === "senior" || userType === "student";
+// }
+
+// console.log(isEligibleForDiscount("man"));// false
+// console.log(isEligibleForDiscount("student")); // true
+// console.log(isEligibleForDiscount("senior")); // true
+// console.log(isEligibleForDiscount("vip")); // false
 
 
 //!   Логічне «НІ» (!)
@@ -921,7 +984,8 @@
 // console.log(!""); // !"" -> !false -> true
 // console.log(!null); // !null -> !false -> true
 
-// На практиці логічне заперечення використовується для перевірки від зворотного. Наприклад, можна дозволити написати повідомлення в чаті, лише якщо користувач не заблокований.
+// На практиці логічне заперечення використовується для перевірки від зворотного. Наприклад, можна дозволити написати повідомлення в чаті, лише якщо користувач
+// не заблокований.
 
 // const isBlocked = false;
 // const canChat = !isBlocked; // !false -> true
@@ -951,7 +1015,7 @@
 // const isOnline = true;
 // const isBlocked = false;
 // const canChat = isOnline && !isBlocked;
-// // true && !false -> true && true -> true
+//* true && !false -> true && true -> true
 
 // if(canChat) {
 // 	console.log("Can type in chat!")
@@ -997,12 +1061,12 @@
 
 // Яким буде результат виразу?
 
-// true
+//*  true
 // false
 // 1
 // Result
 
-// На жаль, ні.Давай розбиратися ? У прикладі 0 перетворюється на false.Але оператор "НІ" змінює значення на протилежне.Отже,
+// Давай розбиратися ? У прикладі 0 перетворюється на false.Але оператор "НІ" змінює значення на протилежне.Отже,
 // маємо true як результат.
 
 // Прочитай приклад коду
@@ -1011,7 +1075,7 @@
 
 // Яким буде результат виразу?
 
-// true
+//* true
 // false
 // 0
 // Result
@@ -1026,7 +1090,8 @@
 //todo: A call to the toggleModalVisibility(true) function returns false.
 //todo: A call to the toggleModalVisibility(false) function returns true.
   
-//todo: The! operator is used.
+//todo: The ! operator is used.
+
 
 //   function toggleModalVisibility(isVisible) {
 //     return !isVisible;
@@ -1610,16 +1675,16 @@
 // Важливо дбати про те, щоб умова циклу while зрештою стала хибною, щоб уникнути нескінченного виконання.
 // Якби нам потрібно було написати функцію:
 
-//*  function countClients(clientCounter, maxClients) {
-//*    let counter = clientCounter; // створюємо локальну змінну
+  // function countClients(clientCounter, maxClients) {
+  //   let counter = clientCounter; // створюємо локальну змінну
 
-//*    while (counter < maxClients) {
-//*      console.log(counter);
-//*      counter += 1;
-//*    }
-//*  }
+  //   while (counter < maxClients) {
+  //     console.log(counter);
+  //     counter += 1;
+  //   }
+  // }
 
-//*   countClients(18, 25);
+  // countClients(18, 25);
 
 // Покрокове виконання:
 
@@ -1639,7 +1704,7 @@
 // Скільки разів виконується тіло циклу while?
 
 // Принаймні один раз
-// Доти, доки умова прирівнюється до true
+//* Доти, доки умова прирівнюється до true
 // Доти, доки умова прирівнюється до false
 // Result
 
@@ -1668,7 +1733,7 @@
 //   return total; // Повертаємо кінцевий результат
 // }
 
-// // Тестування:
+// Тестування:
 // console.log(calculateTotal(1)); // 1
 // console.log(calculateTotal(3)); // 6
 // console.log(calculateTotal(0)); // 0
@@ -2005,24 +2070,10 @@
 
 // У прикладі циклу for вище, змінна i ініціалізується значенням 0, і цикл виконується доти, доки i менше або дорівнює 5.
 //  Після кожної ітерації значення i збільшується на 1. У результаті в консоль будуть виведені числа від 0 до 5.
-
-//? Тест
-// Вибери правильний синтаксис операції постфіксного інкременту над змінною age
-
-//todo   age++
-// age+
-// ++age
-// Result
-
-// І це правильно! age++ — це постфіксний інкремент, який спочатку використовує поточне значення змінної у виразі, а потім 
-// виконує збільшення значення.
-
-//? Задача : 
-
-// The calculateEvenTotal(number) function takes an integer(parameter number).Complete the function code so that it returns
-// the sum of all even integers from one to this number included.Even numbers are those that can be divided by 2 without
-// a remainder(we learned how to do this in the topic Arithmetic Operations in Module 1). For example, if number equals 6,
-// then the sum is 2 + 4 + 6, i.e., 12.
+// Task:
+// The calculateEvenTotal(number) function takes an integer(parameter number).Complete the function code so that it returns 
+// the sum of all even integers from one to this number included.Even numbers are those that can be divided by 2 without a
+// remainder(we learned how to do this in the topic Arithmetic Operations in Module 1). For example, if number equals 6, then the sum is 2 + 4 + 6, i.e., 12.
 
 // The calculateEvenTotal(number) function is declared.
 // Calling the calculateEvenTotal(1) function returns 0.
@@ -2032,8 +2083,138 @@
 // Calling the calculateEvenTotal(27) function returns 182.
 // Calling the function calculateEvenTotal() with a random number returns the correct value.
 
-// const correctPassword = "jqueryismyjam";
-// const userPassword = "jqueryismyjam";
-// const isValid = userPassword === correctPassword;
+// function calculateEvenTotal(number) {
+//    let total = 0;
 
-// console.log(isValid);
+//   for (let i = 2; i <= number; i += 2) {
+//     total += i;
+//   }
+//   return total;
+// }
+
+// console.log(calculateEvenTotal(1));  // 0
+// console.log(calculateEvenTotal(3));  // 2
+// console.log(calculateEvenTotal(7));  // 12
+// console.log(calculateEvenTotal(18)); // 90
+// console.log(calculateEvenTotal(27)); // 182
+
+// Task:
+// Complete the code so that the variable number stores the first number in the range from start to end that is divisible 
+// by 5 without a remainder.
+
+// The start variable is declared.
+// The end variable is declared.
+// The number variable is declared.
+// If start is 6 and end is 17, then the final value of the variable number is 10.
+// If start is 17 and end is 25, then the final value of the variable number is 20.
+// If start is 2 and end is 11, then the final value of the variable number is 5.
+// The code has a for loop that uses break to exit before all iterations are completed.
+
+// let start = 6;
+// let end = 17;
+// let number;
+ 
+// for (let i = start; i <= end; i++){
+
+//   if (i % 5 === 0) {
+//     number = i;
+//     break; // Виходимо з циклу, як тільки знайшли перше число, яке ділиться на 5
+//   }
+// }
+
+// console.log(number);// 10
+// Якщо start дорівнює 17 і end дорівнює 25, то значення змінної number буде 20.
+
+// //!  Оператор break і функції
+
+// Коли оператор break зустрічається всередині циклу, виконання циклу негайно припиняється, і керування передається на 
+// наступну інструкцію за циклом, навіть якщо цикл знаходиться всередині функції.Тобто оператор break не припиняє виконання
+// функції, а тільки перериває цикл.
+
+// function findNumber(max, target) {
+// 	console.log("Log in the body of the function before the cycle");
+
+//   for (let i = 5; i <= max; i += 1) {
+//     console.log("Current counter value i:", i);
+
+//     if (i === target) {
+//       console.log(`Found the number $ {target}, interrupt the cycle`);
+// 			break;
+//     }
+//   }
+
+//   console.log("Log in body function after cycle");
+// }
+
+// findNumber(10, 6);
+// console.log("Log after exiting function");
+
+// Для того щоб переривати виконання одразу циклу і функції і повернути результат у зовнішній код, є оператор return.
+
+
+
+// У прикладі шукаємо число 6. Щойно виконається умова if, робимо повернення, яке перерве виконання циклу і функції.
+
+// function findNumber(max, target) {
+// 	console.log("Log in the body of the function before the cycle");
+
+// 	for (let i = 5; i <= max; i += 1) {
+// 	    console.log("Current counter value i:", i);
+	
+// 	    if (i === target) {
+// 	      console.log(`Found the number $ {target}, we make a return, interrupting the loop and function`);
+// 				return i;
+// 	    }
+// 	  }
+
+//   // Цей console.log не виконується
+//   console.log("Log in body function after cycle");
+// }
+
+// const result = findNumber(10, 6);
+// console.log("Log after exiting function");
+// console.log(`Result of function execution ${result}`);
+
+// Оператор break перериває виконання функції?
+
+// Так
+// Ні
+// Result
+
+// Правильна відповідь! Оператор break не припиняє виконання функції, а тільки перериває цикл.
+
+// Який оператор дозволяє перервати виконання циклу та функції?
+
+// return
+// break
+// Result
+
+// Саме так! Оператор return перериває виконання одразу циклу і функції і дозволяє повернути результат у зовнішній код.
+// Tesk:
+// The findNumber(start, end, divisor) function accepts three parameters, which are integers.
+
+// Enhance the code of the function so that:
+
+// it returns the first number in the range from start to end inclusive, divisible by divisor without a remainder;
+// don't use the break statement.
+// The findNumber(start, end, divisor) function is declared.
+// Calling the findNumber(2, 6, 5) function returns 5.
+// Calling the findNumber(8, 17, 3) function returns 9.
+// Calling the findNumber(6, 9, 4) function returns 8.
+// Calling the findNumber(16, 35, 7) function returns 21.
+// The call to findNumber() with a random set of numbers returns the correct result.
+// In the for loop, break should not be used to exit the loop before completing all iterations.
+
+// function findNumber(start, end, divisor) {
+//   for (let i = start; i <= end; i++) {
+//     if (i % divisor === 0) {
+//       return i;
+//     }
+//   }
+
+// }
+//  console.log(findNumber(2, 6, 5)); // 5
+// console.log(findNumber(8, 17, 3)); // 9
+// console.log(findNumber(6, 9, 4)); // 8
+// console.log(findNumber(16, 35, 7)); // 21
+ 

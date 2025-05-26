@@ -111,6 +111,24 @@ const mixed = ['apple', 10, true]; // масив з елементами різ�
 // } else {
 // 	console.log("3 or less elements");
 // }
+// Task:
+// The function getOrderQuantity(order) takes one parameter order — an array of strings that describe the products in the customer's order.
+// Complete the function code so that it returns a number equal to the number of elements in the array.
+
+// The function getOrderQuantity(order) is declared.
+// Calling getOrderQuantity(["apple", "peach", "pear", "banana"]) returns 4.
+// Calling getOrderQuantity(["apple", "banana"]) returns 2.
+// Calling getOrderQuantity(["apple", "banana", "pear"]) returns 3.
+// Calling getOrderQuantity([]) returns 0.
+
+// function getOrderQuantity(order) {
+//   return order.length;
+// }
+
+// console.log(getOrderQuantity(["apple", "peach", "pear", "banana"])); // 4
+// console.log(getOrderQuantity(["apple", "banana"])); // 2
+// console.log(getOrderQuantity(["apple", "banana", "pear"])); // 3
+// console.log(getOrderQuantity([])); // 0
 
 //?    Індекс останнього елемента
 
@@ -387,19 +405,20 @@ const mixed = ['apple', 10, true]; // масив з елементами різ�
 
 //* Task:
 
-//*        The getLength(array) function expects one parameter array — an array of arbitrary values. Complete the function code so that it converts the array to a string, without delimiters, and returns the number of characters in the resulting string.
+//*  The getLength(array) function expects one parameter array — an array of arbitrary values. Complete the function code so that it converts the array 
+// to a string, without delimiters, and returns the number of characters in the resulting string.
 
 //*        The function getLength(array) is declared.
 //*        The call to getLength(["Mango", "hurries", "to", "the", "train"]) returns 22.
 //*        The call to getLength(["M", "a", "n", "g", "o"]) returns 5.
 //*        The call to getLength(["top", "picks", "for", "you"]) returns 14.
 
-//*        function getLength(array) {
-//*            return array.join("").length;
-//*          }
-//*          console.log(getLength(["Mango", "hurries", "to", "the", "train"]));
-//*          console.log(getLength(["M", "a", "n", "g", "o"]));
-//*          console.log(getLength(["top", "picks", "for", "you"]));
+        // function getLength(array) {
+        //     return array.join("").length;
+        //   }
+        //  console.log(getLength(["Mango", "hurries", "to", "the", "train"]));// 22
+        //   console.log(getLength(["M", "a", "n", "g", "o"]));// 5
+        //   console.log(getLength(["top", "picks", "for", "you"]));// 14
 
 // ? Метод split()
 
