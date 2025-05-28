@@ -583,13 +583,13 @@
 
 //?  Перебір об'єкта
 
-// Цикл for...in
+//todo   Цикл for...in
 
 // На відміну від масиву або рядка, об'єкт — це не ітерабельна сутність, тобто його не можна перебрати циклами for або for...of.
 // Для перебирання об'єктів використовується спеціальний цикл for...in, який перебирає ключі об'єкта object.
 
 // for (key in object) {
-//   // інструкції
+  // інструкції
 // }
 
 // Змінна key доступна тільки в тілі циклу.
@@ -608,7 +608,8 @@
 // }
 
 // Task:
-// Iterate over the apartment object using the for...in loop and write all its keys to the keys array and all the values of its properties to the values array.
+// Iterate over the apartment object using the for...in loop and write all its keys to the keys array and all the values of its
+//  properties to the values array.
 
 // The variable apartment is declared.
 // The value of the apartment variable is an object.
@@ -626,6 +627,7 @@
   
 //   const keys = [];
 // const values = [];
+
 // for (const key in apartment) {
 //     keys.push(key); // Додаємо ключ до масиву keys
 //     values.push(apartment[key]); // Додаємо значення до масиву values
@@ -671,7 +673,7 @@
 // Масив значень властивостей об'єкта
 // Result
 
-// Давай запам’ятаємо: метод Object.keys(object) приймає об'єкт і повертає масив ключів його властивостей. 
+// Давай запам’ятаємо: метод Object.keys(object) приймає об'єкт і повертає масив ключів його властивостей.
 // Якщо в об'єкті немає властивостей, метод поверне порожній масив.
 
 // Iterate the apartment object using the Object.keys() method and the for...of loop. Write to the variable keys an array of keys of the properties of the object apartment, and add all the values of its properties to the array values.
@@ -701,5 +703,394 @@
 // console.log(keys); // ["descr", "rating", "price"]
 // console.log(values); // ["Spacious apartment in the city center", 4, 2153]
 
+//*  Task:
 
+// Refactor the countProps(object) function by replacing the key enumeration using the for...in loop with the Object.keys() method
+// to get an array of properties.The function should return the number of properties in the object object.
 
+// The countProps(object) function is declared.
+// Calling countProps({}) returns 0.
+// Calling countProps({ name: "Mango", age: 2 }) returns 2.
+// Calling countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) returns 3.
+// The function uses the Object.keys() method.
+
+// function countProps(object) {
+//     let propCount = 0;
+  
+//     for (const key in object) {
+//       if (object.hasOwnProperty(key)) {
+//         propCount += 1;
+//       }
+//     }
+  
+//     return propCount;
+// }
+//    function countProps(object) {
+//         return Object.keys(object).length;
+//       }
+//     console.log(countProps({})); // 0
+//     console.log(countProps({ name: "Mango", age: 2 })); // 2
+//     console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); // 3
+
+//?    Метод Object.values()
+// Якщо метод Object.keys(object) повертає масив імен властивостей об'єкта (тобто ключі), то метод Object.values(object) повертає масив значень його властивостей.
+// Якщо в об'єкті відсутні властивості, метод Object.values(object) поверне порожній масив.
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// console.log(keys); // ["title", "author", "rating"]
+
+// const values = Object.values(book);
+// console.log(values); // ["The Last Kingdom", "Bernard Cornwell", 8.38]
+
+// Масив значень властивостей також можна перебрати циклом for...of, наприклад для отримання загальної суми числових значень.
+
+// Task:
+// Write an array of keys to the properties of the apartment object into the keys variable and an array of values into the values variable.Use the Object.keys()
+// and Object.values() methods.
+
+// The variable apartment is declared.
+// The value of the variable apartment is an object.
+// The variable keys is declared.
+// The value of the variable keys is the array ["descr", "rating", "price"].
+// The variable values is declared.
+// The value of the variable values is the array ["Spacious apartment in the city center", 4, 2153].
+// The Object.keys() method is used to get an array of keys from the apartment object.
+// The Object.values() method is used to get an array of values from the apartment object.
+
+// const apartment = {
+//     descr: "Spacious apartment in the city center",
+//     rating: 4,
+//     price: 2153,
+//   };
+  
+// const keys = Object.keys(apartment);
+// const values = Object.values(apartment);
+
+// console.log(keys); // ["descr", "rating", "price"]
+// console.log(values); // ["Spacious apartment in the city center", 4, 2153]
+
+// //*  Task витрати на зарплату :
+// The function countTotalSalary(salaries) accepts an object of salaries (salaries) as a parameter. Each property of the salaries object is a key that contains the employee's name, and its value is their corresponding salary.
+
+// Complete the countTotalSalary(salaries) function so that it returns the total sum of the salaries of all employees.
+
+// Tips:
+
+// Initialise a variable totalSalary with the value 0, which will be responsible for the total sum of all employees' salaries.
+// Use the Object.values() method to get the values (salaries) from the salaries object.
+// Iterate over the obtained values using a loop and add each value to the totalSalary variable.
+// Return totalSalary as the result.
+// The countTotalSalary(salaries) function is declared.
+// Calling countTotalSalary({}) returns 0.
+// Calling countTotalSalary({ mango: 100, poly: 150, alfred: 80 }) returns 330.
+// Calling countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }) returns 400.
+
+// function countTotalSalary(salaries) {
+//     let totalSalary = 0;
+
+//     // Отримуємо масив значень зарплат
+//     const salaryValues = Object.values(salaries);
+
+//     // Додаємо кожне значення до загальної суми
+//     for (const salary of salaryValues) {
+//         totalSalary += salary;
+//     }
+
+//     return totalSalary;
+// }
+
+// // Перевірка роботи функції:
+// console.log(countTotalSalary({})); // 0
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); // 330
+// console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 })); // 400
+
+//?  Масив об’єктів
+// Об'єкти дозволяють згрупувати описові характеристики сутності, наприклад, користувача, книги, автомобіля, шоколадного батончика тощо.
+// Для опису групи сутностей використовується масив об'єктів.
+// Уяви, що треба описати бібліотеку. Кожна книга — це окремий об’єкт, що містить інформацію про назву, автора, кількість сторінок, рейтинг тощо. Якщо книга — це один об’єкт, то біблотека — це колекція книг, тобто масив об’єктів.
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   }
+// ];
+
+// У стандартний набір повсякденних завдань розробника входить маніпуляція масивом однотипних об'єктів. Це означає, що всі об'єкти в масиві
+// гарантовано матимуть однаковий набір властивостей, але з різними значеннями.
+// Для перебору такого масиву використовується стандартний цикл for...of.
+
+// Значення властивостей кожного об'єкта можна отримати, використовуючи синтаксис «через крапку» (див. тему Об’єкти. Доступ до властивостей через крапку),
+// оскільки в кожному об'єкті набір властивостей та їх імена будуть однакові, відрізнятимуться тільки значення.
+
+// for (const book of books) {
+//   console.log(book); // Об'єкт книги
+//   console.log(book.title); // Назва
+//   console.log(book.author); // Автор
+//   console.log(book.rating); // Рейтинг
+// }
+
+// Яку особливість має колекція об'єктів у прикладі вище?
+
+// У всіх об'єктів різний набір властивостей, з різними значеннями
+//* У всіх об'єктів однаковий набір властивостей, з різними значеннями
+// У всіх об'єктів однаковий набір властивостей, з однаковими значеннями
+// Result
+
+//* І це правильна відповідь! У колекції об'єктів у прикладі кожен об’єкт має однаковий набір властивостей та їх імена. А значення властивостей будуть різними
+// для кожного об’єкта.
+
+// Task:
+
+// The array colors contains a collection of colours.Each colour is represented as an object with properties hex and rgb, holding the respective values for
+// each format and colour.
+// Iterate over the array of objects colors using a for...of loop.Add the values of the hex properties to the array hexColors and the values of
+// the rgb properties to the array rgbColors from all objects in the colors array.
+
+// A variable colors is declared.
+// The value of the variable colors is an array.
+// A variable hexColors is declared.
+// The value of the variable hexColors is an array ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"].
+// A variable rgbColors is declared.
+// The value of the variable rgbColors is an array["244,67,54", "33,150,243", "76,175,80", "255,235,59"].
+
+// const colors = [
+//     { hex: "#f44336", rgb: "244,67,54" },
+//     { hex: "#2196f3", rgb: "33,150,243" },
+//     { hex: "#4caf50", rgb: "76,175,80" },
+//     { hex: "#ffeb3b", rgb: "255,235,59" }
+//   ];
+  
+//   const hexColors = [];
+//   const rgbColors = [];
+
+// for (const color of colors) {
+//     hexColors.push(color.hex);
+//     rgbColors.push(color.rgb);
+// }
+
+// console.log(hexColors);// ["#f44336", "#2196f3","#4caf50","#ffeb3b"]
+// console.log(rgbColors); // ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+//? Пошук об'єкта за значенням властивості
+
+// Стандартне завдання під час роботи з масивом об'єктів — це пошук об'єкта за значенням властивості.Наприклад, потрібно знайти книгу за її автором.
+// Для цього необхідно: перебрати масив у циклі;
+// додати умову, виконання якої означатиме успішний результат пошуку.
+
+// const books = [
+//   { title: "The Last Kingdom", author: "Bernard Cornwell" },
+//   { title: "Beside Still Waters", author: "Robert Sheckley" },
+//   { title: "The Dream of a Ridiculous Man", author: "Fyodor Dostoevsky" }
+// ];
+
+// const authorToSearchFor = "Robert Sheckley";
+
+// for (const book of books) {
+// 	if(book.author === authorToSearchFor) {
+// 		console.log(book);
+// 		console.log(book.title)
+// 		console.log(book.rating)
+// 	}
+// }
+
+// У прикладі вище цикл for перебирає об'єкти в масиві, доки не знайде той, у якого порівняння значення властивості author і authorToSearchFor
+// поверне true.Щойно об’єкт з необхідним автором знайдено, виконається тіло if, де ми вже можемо працювати зі знайденим об'єктом.
+
+// Task:
+// The function getProductPrice(productName) accepts a single parameter productName — the name of the product. The function contains an array of
+// objects products with properties such as name — the product name, price — the price, and quantity — the quantity.
+
+// Complete the function code so that it searches for a product object with a specific name (the name property) in the products array and returns
+// its price (the price property). If a product with that name is not found, the function should return null.
+
+// The getProductPrice(productName) function is declared.
+// Calling getProductPrice(‘Radar’) returns 1300.
+// The getProductPrice(‘Grip’) call returns 1200.
+// The getProductPrice(‘Scanner’) call returns 2700`.
+// Calling getProductPrice(‘Droid’) returns 400.
+// Calling getProductPrice(‘Engine’) returns null.
+// Ось правильний варіант завершеної функції getProductPrice(productName), яка виконує пошук продукту за його назвою та повертає його ціну:
+// function getProductPrice(productName) {
+//     const products = [
+//       { name: "Radar", price: 1300, quantity: 4 },
+//       { name: "Scanner", price: 2700, quantity: 3 },
+//       { name: "Droid", price: 400, quantity: 7 },
+//       { name: "Grip", price: 1200, quantity: 9 },
+//     ];
+
+//     for (const product of products) {
+//         if (product.name === productName) {
+//             return product.price; // Повертаємо його ціну
+//         }
+//     }
+
+//     return null;
+//   }
+  
+//   console.log(getProductPrice("Radar"));
+//   console.log(getProductPrice("Grip"));
+//   console.log(getProductPrice("Scanner"));
+//  console.log(getProductPrice("Droid"));
+//  console.log(getProductPrice("Engine"));// null
+// 🔹 Як працює код?
+// Є масив products – список об'єктів, де кожен має name, price та quantity.
+
+// Цикл for...of проходить по кожному продукту в масиві.
+
+// Перевіряємо, чи product.name дорівнює productName (що передано в аргумент).
+
+// Якщо знайшли збіг, повертаємо product.price.
+
+// Якщо жоден продукт не співпав, повертаємо null.
+
+// 🚀 Чому це працює?
+// Використання for...of дозволяє легко проходити по масиву.
+
+// Порівняння product.name === productName знаходить потрібний об'єкт.
+
+// Повернення null чітко вказує, що товар відсутній.
+
+// Ця функція гнучка, працює для будь-яких даних і легко розширюється.
+
+//?  Колекція значень властивості
+
+// Типова задача під час роботи з колекцією об'єктів — це отримання масиву всіх значень певної властивості об'єктів.Наприклад, взяти з масиву об'єктів, які описують
+// книги, усі назви або рейтинг.
+// Для цього необхідно:
+// Створити новий порожній масив для зберігання значень властивостей.
+// Перебрати масив об'єктів у циклі.
+// На кожній ітерації додати в новий масив значення необхідної властивості.
+// Наприклад, отримаємо список назв усіх книг у колекції books.
+
+// const books = [
+//   { title: "The Last Kingdom", author: "Bernard Cornwell", rating: 8.2 },
+//   { title: "Beside Still Waters", author: "Robert Sheckley", rating: 9 },
+//   { title: "The Dream of a Ridiculous Man", author: "Fyodor Dostoevsky", rating: 6.8 }
+// ];
+
+// const titles = [];
+
+// for (const book of books) {
+// 	titles.push(book.title)
+// }
+
+// console.log(titles); // ["The Last Kingdom", "Beside Still Waters", "The Dream of a Ridiculous Man"]
+// У результаті вийде масив значень певної властивості з усіх об'єктів.
+// Дізнаємося середній рейтинг усієї нашої колекції. Для цього треба скласти всі рейтинги й розділити отримане значення на кількість книг.
+
+// const books = [
+//   { title: "The Last Kingdom", author: "Bernard Cornwell", rating: 8.2 },
+//   { title: "Beside Still Waters", author: "Robert Sheckley", rating: 9 },
+//   { title: "The Dream of a Ridiculous Man", author: "Fyodor Dostoevsky", rating: 6.8 }
+// ];
+
+// let totalRating = 0;
+
+// for (const book of books) {
+//   totalRating += book.rating;
+// }
+
+// const averageRating = totalRating / books.length;
+// console.log(averageRating); // 8
+
+//* TAsk:
+// Write a getAllPropValues(propName) function that takes one parameter propName — the name(key) of the property.The function should return an array of all property
+//  values with this name from each object in the products array.If there are no properties with this name in the objects, the function must return an empty array.
+
+// The getAllPropValues(propName) function is declared.
+// Calling getAllPropValues("name") returns ["Radar", "Scanner", "Droid", "Grip"].
+// Calling getAllPropValues("quantity") returns [4, 3, 7, 9].
+// Calling getAllPropValues("price") returns [1300, 2700, 400, 1200].
+// Calling getAllPropValues("category") returns[].
+
+// function getAllPropValues(propName) {
+//     const products = [
+//         { name: "Radar", price: 1300, quantity: 4 },
+//         { name: "Scanner", price: 2700, quantity: 3 },
+//         { name: "Droid", price: 400, quantity: 7 },
+//         { name: "Grip", price: 1200, quantity: 9 },
+//     ];
+
+//     const values = []; // Ініціалізуємо порожній масив для збереження значень властивості
+
+//     for (const product of products) { // Перебираємо кожен об'єкт у масиві products
+//         if (product.hasOwnProperty(propName)) { // Перевіряємо, чи об'єкт має таку властивість
+//             values.push(product[propName]); // Додаємо значення властивості до масиву
+//         }
+//     }
+
+//     return values; // Повертаємо масив значень
+// }
+
+// Тестуємо функцію
+// console.log(getAllPropValues("name")); // ["Radar", "Scanner", "Droid", "Grip"]
+// console.log(getAllPropValues("quantity")); // [4, 3, 7, 9]
+// console.log(getAllPropValues("price")); // [1300, 2700, 400, 1200]
+// console.log(getAllPropValues("category")); // []
+
+// 🔹 Як працює код?
+// 1️⃣ Створюємо порожній масив values, в який будемо додавати значення. 2️⃣ Проходимо for...of циклом по products – перебираємо кожен об'єкт у масиві. 3️⃣ 
+// Перевіряємо, чи product містить передану властивість propName(hasOwnProperty(propName)). 4️⃣ Якщо властивість існує, додаємо її значення до масиву values.
+//  5️⃣ Повертаємо values – готовий масив всіх значень цієї властивості. 6️⃣ Якщо властивість відсутня в об'єктах, повертаємо пустий масив [].
+
+// 🚀 Чому це рішення правильне?
+// ✅ Використовує стандартний цикл for...of, що робить код читабельним. ✅ Використання hasOwnProperty(propName) запобігає помилкам. ✅
+// Гнучкість – можна шукати будь - яку властивість у products, а не лише "name", "price" або "quantity".
+
+//* TAsk А тепер розв'яжемо задачу "Вартість товару"!
+
+// The function calculateTotalPrice(productName) accepts one parameter, productName— the name of the product.The function contains an array of objects products
+// with properties such as name— the name of the product, price— the price, and quantity— the quantity.
+
+// Complete the function code so that it returns the total cost (price * quantity) of the product with that name from the array products.
+
+// If there is no product with that name, the function should return the string "Product <productName> not found!", where <productName> is the name of the product.
+
+// The function calculateTotalPrice(productName) is declared.
+// The call calculateTotalPrice("Blaster") returns "Product Blaster not found!"
+// The call calculateTotalPrice("Radar") returns 5200
+// The call calculateTotalPrice("Droid") returns 2800
+// The call calculateTotalPrice("Grip") returns 10800
+// The call calculateTotalPrice("Scanner") returns 8100
+// Ось правильна реалізація функції calculateTotalPrice(productName), яка знаходить продукт за назвою та повертає загальну вартість (ціна × кількість):
+
+// function calculateTotalPrice(productName) {
+//     const products = [
+//       { name: "Radar", price: 1300, quantity: 4 },
+//       { name: "Scanner", price: 2700, quantity: 3 },
+//       { name: "Droid", price: 400, quantity: 7 },
+//       { name: "Grip", price: 1200, quantity: 9 },
+//     ];
+//     for (const product of products) {
+//         if (product.name === productName) {
+//             return product.price * product.quantity;
+//       }
+//     } return `Product ${productName} not found!`;
+   
+// }
+// console.log(calculateTotalPrice("Blaster"));//"Product Blaster not found!"
+// console.log(calculateTotalPrice("Radar")); //5200
+// console.log(calculateTotalPrice("Droid")); //2800
+// console.log(calculateTotalPrice("Grip")); //10800
+// console.log(calculateTotalPrice("Scanner"));//8100
+// 🔹 Як працює код?
+//     1️⃣ Перебираємо масив products за допомогою for...of. 2️⃣ Перевіряємо, чи product.name дорівнює productName. 3️⃣ Якщо продукт знайдено, повертаємо
+// product.price * product.quantity. 4️⃣ Якщо продукт не знайдено, повертаємо рядок "Product <productName> not found!".
+
+// 🚀 Чому це правильне рішення?
+// ✅ Чистий і зрозумілий код, без зайвих операцій. ✅ Гнучкість – працює з будь-якими товарами. ✅ Правильно обробляє ситуацію, коли товар відсутній. 
