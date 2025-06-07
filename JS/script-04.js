@@ -1760,17 +1760,17 @@
 // The call to the function getExtremeScores([19, 7, 4, 17, 81, 24]) returns the object { best: 81, worst: 4 }.
 // The spread syntax ... is used on the array scores to pass arguments to the Math.max() and Math.min() methods.
 
-function getExtremeScores(scores) {
+// function getExtremeScores(scores) {
   
-  return {
-    best: Math.max(...scores),
-    worst: Math.min(...scores),
-  };  
+//   return {
+//     best: Math.max(...scores),
+//     worst: Math.min(...scores),
+//   };  
 
-}
+// }
 // Test cases
-console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26])); // Expected: { best: 93, worst: 17 } 
-console.log(getExtremeScores([19, 7, 4, 17, 81, 24])); // Expected: { best: 81, worst: 4 }
+// console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26])); // Expected: { best: 93, worst: 17 } 
+// console.log(getExtremeScores([19, 7, 4, 17, 81, 24])); // Expected: { best: 81, worst: 4 }
 // 🔹 Як працює код?
 // 1️⃣ Функція getExtremeScores оголошена з параметром scores, який є масивом чисел.
 // 2️⃣ Використовуємо оператор розпилення ... для передачі елементів масиву scores у функції Math.max() і Math.min().
