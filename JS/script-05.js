@@ -1461,72 +1461,72 @@
 // А тепер давай розглянемо задачу ?
 // We will pass this array of objects to the users parameter when calling the function from the task.
 
-const users =
-[
-  {
-    name: "Moore Hensley",
-    email: "moorehensley@indexia.com",
-    eyeColor: "blue",
-    friends: ["Sharron Pace"],
-    isActive: false,
-    balance: 2811,
-    gender: "male"
-  },
-  {
-    name: "Sharlene Bush",
-    email: "sharlenebush@tubesys.com",
-    eyeColor: "blue",
-    friends: ["Briana Decker", "Sharron Pace"],
-    isActive: true,
-    balance: 3821,
-    gender: "female"
-  },
-  {
-    name: "Ross Vazquez",
-    email: "rossvazquez@xinware.com",
-    eyeColor: "green",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-    isActive: false,
-    balance: 3793,
-    gender: "male"
-  },
-  {
-    name: "Elma Head",
-    email: "elmahead@omatom.com",
-    eyeColor: "green",
-    friends: ["Goldie Gentry", "Aisha Tran"],
-    isActive: true,
-    balance: 2278,
-    gender: "female"
-  },
-  {
-    name: "Carey Barr",
-    email: "careybarr@nurali.com",
-    eyeColor: "blue",
-    friends: ["Jordan Sampson", "Eddie Strong"],
-    isActive: true,
-    balance: 3951,
-    gender: "male"
-  },
-  {
-    name: "Blackburn Dotson",
-    email: "blackburndotson@furnigeer.com",
-    eyeColor: "brown",
-    friends: ["Jacklyn Lucas", "Linda Chapman"],
-    isActive: false,
-    balance: 1498,
-    gender: "male"
-  },
-  {
-    name: "Sheree Anthony",
-    email: "shereeanthony@kog.com",
-    eyeColor: "brown",
-    friends: ["Goldie Gentry", "Briana Decker"],
-    isActive: true,
-    balance: 2764,
-    gender: "female"
-  }
-]
+// const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
 // Extend the getUserWithEmail(users, email) function so that it returns a user object whose email (property email) matches the value of the second parameter email.
 
 // The function getUserWithEmail is declared.
@@ -1538,10 +1538,1030 @@ const users =
 // If there is no user in the users array with the email from the email parameter, the function returns undefined.
 // Calling the function with random, but valid, arguments returns the correct value.
 
-const getUserWithEmail = (users, email) => {
-  return users.find(user => user.email === email);
-};
+// const getUserWithEmail = (users, email) => {
+//   return users.find(user => user.email === email);
+// };
 
-console.log(getUserWithEmail(users, "shereeanthony@kog.com"));
+// console.log(getUserWithEmail(users, "shereeanthony@kog.com"));
 // { name: "Sheree Anthony", email: "shereeanthony@kog.com", ... }
- // { name: 'Sheree Anthony', email: '  
+// { name: 'Sheree Anthony', email: '
+ 
+//!   Методи every, some і reduce
+
+// ? Метод every()
+
+// Метод every(callback) перевіряє, чи задовольняють усі елементи умову колбек-функції.
+
+// array.every((element, index, array) => {
+  // Тіло колбек-функції
+// });
+
+//*  Не змінює оригінальний масив
+//*  Поелементно перебирає оригінальний масив
+//*  Повертає true, якщо всі елементи масиву задовольняють умову
+//*  Повертає false, якщо хоча б один елемент масиву не задовольняє умову
+//*  Перебирання масиву припиняється, якщо колбек повертає false
+
+
+// Усі елементи більші або дорівнюють нулю? - так
+// [1, 2, 3, 4, 5].every((value) => value >= 0); // true
+
+// Усі елементи більші або дорівнюють нулю? - ні
+// [1, 2, 3, -10, 4, 5].every((value) => value >= 0); // false
+
+// Під час роботи з масивом об'єктів перевіряється значення якоїсь їхньої властивості. Наприклад, перебираючи масив об'єктів товарів, ми можемо перевірити,
+// чи всі товари є в наявності.
+// const products = [
+// 	{ name: "apple", quantity: 2 },
+// 	{ name: "orange", quantity: 5 },
+// 	{ name: "plum", quantity: 0 },
+// ];
+
+// const hasEveryProduct = products.every(product => product.quantity > 0);
+// console.log(hasEveryProduct); // false
+
+
+// Що повертає метод every()?
+
+//* true, якщо всі елементи масиву задовольняють умову, і false, якщо хоча б один елемент масиву не задовольняє умову
+// false, якщо всі елементи масиву задовольняють умову, і true, якщо хоча б один елемент масиву не задовольняє умову
+// Result
+
+//* Так, усе правильно! Метод every() повертає true, тільки якщо всі елементи масиву задовольняють умову, і false, якщо хоча б один елемент масиву цього не робить.
+
+// Чи змінює метод every масив, до якого застосовується?
+
+// Так
+//* Ні
+// Result
+
+//* І це правильна відповідь! Метод every(callback) не змінює оригінальний масив.
+
+//todo     Задача:
+
+// We will pass this array of objects to the users parameter when calling the function from the task.
+  
+// const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
+// Extend the isEveryUserActive(users) function so that it checks whether all users are currently active (the isActive property) and returns either true or false.
+
+// The variable isEveryUserActive is declared.
+// An arrow function with the (users) parameter is assigned to the isEveryUserActive variable.
+// To iterate over the users parameter, the every() method is used.
+// Calling the function with the specified array of users returns false.
+
+// const isEveryUserActive = (users) => {
+//   return users.every(user => user.isActive);
+// };
+
+// console.log(isEveryUserActive(users)); // false
+
+//?    Метод some()
+
+// Метод some(callback) перевіряє, чи задовольняє хоча б один елемент умову колбек-функції.
+
+// array.some((element, index, array) => {
+  // Тіло колбек-функції
+// });
+
+// Не змінює оригінальний масив
+// Поелементно перебирає оригінальний масив
+// Повертає true, якщо хоча б один елемент масиву задовольняє умову
+// Повертає false, якщо жоден елемент масиву не задовольняє умову
+// Перебирання масиву припиняється, якщо колбек повертає true
+
+// Чи є хоча б один елемент, що більший або дорівнює нулю? - так
+//* [1, 2, 3, 4, 5].some(value => value >= 0); // true
+
+// Чи є хоча б один елемент, що більший або дорівнює нулю? - так
+//* [-7, -20, 3, -10, -14].some(value => value >= 0); // true
+
+// Чи є хоча б один елемент, що менший від нуля? - ні
+//* [1, 2, 3, 4, 5].some(value => value < 0); // false
+
+// Чи є хоча б один елемент, що менший від нуля? - так
+//* [1, 2, 3, -10, 4, 5].some(value => value < 0); // true
+
+
+// Зверни увагу на відмінність між методом every та методом some: Метод every() перевіряє, чи задовольняють усі елементи умову колбек - функції. 
+// Метод some() перевіряє, чи задовольняє хоча б один елемент умову колбек - функції.
+
+// Що повертає метод some() ?
+
+//* true, якщо хоча б один елемент масиву задовольняє умову, та false, якщо жоден елемент масиву не задовольняє умову
+// true, якщо всі елементи масиву задовольняють умову, і false, якщо хоча б один елемент масиву не задовольняє умову
+// Result
+
+//* Чудово! Ти дуже уважний/-а! Метод some() дійсно повертає true, якщо хоча б один елемент масиву задовольняє умову, та false, якщо жоден елемент масиву не задовольняє умову
+
+// Чи змінює метод some() масив, до якого застосовується?
+
+// Так
+//*  Ні
+// Result
+
+//* Це легко, чи не так? Як і методи, розглянуті раніше, метод some() не змінює масив, до якого застосовується.
+
+//todo     Задача:
+// We will pass this array of objects to the users parameter when calling the function from the task.
+// const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
+// Enhance the isAnyUserActive(users) function so that it checks for at least one active user (the isActive property) and returns either true or false.
+
+// The isAnyUserActive function is declared.
+// The isAnyUserActive variable is assigned an arrow function with the (users) parameter.
+// To iterate over the users parameter, the some() method is used.
+// Calling the function with the specified array of users returns true.
+
+// const isAnyUserActive = (users) => {
+//   return users.some(user => user.isActive);
+// };
+// console.log(isAnyUserActive(users)); // true
+
+//?    Метод reduce()
+
+// Метод reduce(callback, initialValue) використовується для послідовної обробки кожного елемента масиву із збереженням проміжного результату. 
+// Трохи складніший за інші методи для засвоєння, але результат вартий того.
+
+  // array.reduce((previousValue, element, index, array) => {
+  // Тіло колбек-функції
+// }, initialValue);
+
+
+//*  Не змінює оригінальний масив
+//*  Поелементно перебирає оригінальний масив
+//*  Повертає все, що завгодно (об’єкт, масив, рядок, число тощо)
+//*  Може замінити функціонал будь-якого іншого перебираючого методу масиву та навіть їх комбінацію
+
+// Метод reduce() очікує 2 параметри:
+
+// 1-й параметр (обов’язковий) — колбек-функція, яка "опрацьовує" кожен елемент масиву;
+// 2-й параметр (не обов’язковий) — initialValue початкове значення акумулятора.
+
+// Колбек - функція з параметра редьюса очікує в свою чергу чотири параметри.Ці параметри, так само як і в колбеках інших перебираючих методів масиву,
+// можна не оголошувати, якщо вони вам не потрібні, але не можна порушувати їх послідовність:
+
+// 1 - й параметр(previousValue) — це акумулятор, тобто проміжний результат.Значення, яке поверне колбек - функція на поточній ітерації, буде значенням 
+// цього параметра на наступній ітерації;
+// 2-й параметр — поточний елемент масиву;
+// 3-й параметр — індекс поточної ітерації;
+// 4-й параметр — посилання на вихідний масив.
+
+// Найлегше уявити його роботу на прикладі підрахунку суми елементів масиву.
+
+// const total = [2, 7, 3].reduce((previousValue, number) => {
+//   return previousValue + number;
+// }, 0);
+
+// console.log(total); // 12
+
+// Розгляньмо детальніше роботу редьюса у прикладі вище:
+
+// Початкове значення акумулятора 0
+// перша ітерація колбек-функції 0 + 2 поверне 2
+// друга ітерація колбек-функції 2 + 7 поверне 9
+// третя ітерація колбек-функції 9 + 3 поверне 12
+
+// Результатом коду вище буде 12.
+
+// Тобто метод reduce() використовується, коли необхідно взяти «багато» і привести до «одного». У повсякденних завданнях його застосування зводиться до роботи з числами.
+
+// Що повертає метод reduce()?
+
+// Тільки масив
+// Тільки об’єкт
+//*  Будь-яке необхідне значення
+// Result
+
+//*  Точно! Метод reduce() повертає будь-яке необхідне значення.
+
+// Чи змінює метод reduce() масив, до якого застосовується?
+
+// Так
+//* Ні
+// Result
+
+//* Саме так! Метод reduce() поелементно перебирає оригінальний масив, але не змінює його.
+
+//todo     Задача:
+
+// The gaming service requires functionality to calculate the average time spent in games by a single player.
+// The players variable stores an object where the key is the player's name and the value is their playing time.
+// The playtimes variable stores an array of values from the players object, meaning an array of playing times for all players.
+// The value of the averagePlayTime variable will be the average time spent by a single player in games.
+
+// Complete the code so that the totalPlayTime variable holds the total playing time from the playtimes array. Use the reduce() method.
+
+// The variable players is declared.
+// The value of the players variable is an object of players with each player's playing time.
+// The variable playtimes is declared.
+// The value of the playtimes variable is the array [1270, 468, 710, 244].
+// The variable totalPlayTime is declared.
+// The value of the totalPlayTime variable is the number 2692.
+// The reduce() method is used to iterate over the playtimes array.
+// The variable averagePlayTime is declared.
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+// const totalPlayTime = playtimes.reduce((acc, time) => acc + time, 0);
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+// console.log(totalPlayTime); // 2692
+// console.log(averagePlayTime); // 673
+
+//! Нотатки:
+// В цьому коді `Object.values(players)` використовується для отримання масиву значень з об'єкта `players`.
+
+// Об'єкт `players` містить ключі (імена гравців) і відповідні значення (час гри). `Object.values()` - це вбудований метод в JavaScript, який повертає масив значень всіх властивостей об'єкта.
+// Ось що він робить у цьому випадку:
+// ```js
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+// ```
+// Це означає, що він бере всі значення (`1270`, `468`, `710`, `244`) і формує масив. Сам `Object` - це глобальний об'єкт JavaScript,
+// який містить методи для роботи з об'єктами, включаючи `Object.values()`.
+
+//?  Метод reduce() і масив об'єктів
+
+// Під час роботи з масивом об'єктів виконується редукування за значенням певної властивості. Наприклад, у нас є масив студентів з балами за тест. 
+// Необхідно отримати середній бал.
+
+// const students = [
+//   { name: "Mango", score: 83 },
+//   { name: "Poly", score: 59 },
+//   { name: "Ajax", score: 37 },
+//   { name: "Kiwi", score: 94 },
+//   { name: "Houston", score: 64 },
+// ];
+
+// Назва акумулятора може бути довільною, це просто параметр функції
+// const totalScore = students.reduce((total, student) => {
+//   return total + student.score;
+// }, 0);
+
+// const averageScore = totalScore / students.length;
+
+// console.log(totalScore); // 337
+// console.log(averageScore); // 67.4
+
+// У прикладі вище метод reduce() використовується для обчислення суми значень властивості score для всіх об'єктів масиву students.
+// Починаючи зі значення 0, колбек - функція обчислює суму значень властивості score для кожного об'єкта масиву students. 
+// Результат(сума) зберігається у змінній totalScore.
+// const averageScore обчислює середнє значення score для всіх об'єктів масиву students, шляхом ділення суми всіх балів на кількість студентів.
+
+//todo  Задача:
+
+// In the variable players, there is an array of objects, each of which has the properties name, playtime, and gamesPlayed.
+
+// Our service needs to calculate the average time spent in a single game for each player and obtain the total sum of these time values in the variable totalAveragePlaytimePerGame. The time for each player can be calculated by dividing their time (the playtime property) by the number of games (the gamesPlayed property).
+
+// Tips:
+
+// Use the reduce() method to iterate over the players array and compute the total sum of the average time per game.
+// Inside the callback function of reduce(), divide the player's playtime by gamesPlayed to obtain the average time spent on a single game by each player.
+// Accumulate the result in the variable acc and return it at the end of each iteration.
+// Initialize the acc parameter of the reduce() method with an initial value of 0 to avoid getting NaN during calculations.
+// As a result, the variable totalAveragePlaytimePerGame will contain the total sum of the average time per game for all players.
+// The variable players is declared.
+// The value of the players variable is an array of player objects.
+// The variable totalAveragePlaytimePerGame is declared.
+// The value of the variable totalAveragePlaytimePerGame is the number 1023.
+// To iterate over the players array, the reduce() method is used.
+
+// const players = [
+//   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//   { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+// ];
+
+// const totalAveragePlaytimePerGame = players.reduce((acc, player) => {
+//   return acc + player.playtime / player.gamesPlayed;
+// }, 0);
+// console.log(totalAveragePlaytimePerGame); // 1023
+//! Нотатки:
+// У цьому коді ми використовуємо метод `reduce()` для обчислення загальної суми середнього часу, проведеного в грі, для кожного гравця.
+// Метод `reduce()` перебирає масив `players`, де кожен елемент є об'єктом з властивостями `name`, `playtime` та `gamesPlayed`.
+// На кожній ітерації ми ділимо `playtime` на `gamesPlayed`, щоб отримати середній час, проведений в грі для кожного гравця, і додаємо цей результат до акумулятора `acc`.
+// Після завершення перебору масиву, `reduce()` повертає загальну суму середнього часу, проведеного в грі для всіх гравців, яка зберігається в змінній `totalAveragePlaytimePerGame`. 
+// Це дозволяє нам отримати загальний показник середнього часу, проведеного в грі для всіх гравців у масиві `players`.
+
+// todo   Задача:
+// We will pass this array of objects to the users parameter when calling the function from the task.
+//  const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
+// Enhance the calculateTotalBalance(users) function so that it calculates and returns the sum of all funds(property balance) 
+// that are stored by users from the users array.
+
+// The variable calculateTotalBalance is declared.
+// The calculateTotalBalance variable is assigned an arrow function with the (users) parameter.
+// To iterate over the users parameter, the reduce() method is used.
+// Calling the function with the specified array of users returns the number 20916.
+
+// const calculateTotalBalance = (users) => {
+//   return users.reduce((total, user) => total + user.balance, 0);
+// };
+
+// console.log(calculateTotalBalance(users)); // 20916
+// //! Нотатки:
+// У цьому коді ми використовуємо метод `reduce()` для обчислення загальної суми балансу всіх користувачів.
+// Метод `reduce()` перебирає масив `users`, де кожен елемент є об'єктом з властивістю `balance`.
+// На кожній ітерації ми додаємо значення `balance` поточного користувача до акумулятора `total`.
+// Після завершення перебору масиву, `reduce()` повертає загальну суму балансу всіх користувачів, яка зберігається в змінній `calculateTotalBalance`.
+// Це дозволяє нам отримати загальний баланс всіх користувачів у масиві `users`.
+
+//!    Метод toSorted
+//?  Метод toSorted()
+
+// Метод toSorted() сортує елементи масиву.
+
+//   array.toSorted();
+
+// Сортує вихідний масив
+// Повертає новий масив
+// За замовчуванням сортує за зростанням
+
+//*  Масив чисел
+
+// Розгляньмо приклад, де потрібно відсортувати масив scores.
+// Вихідний масив scores залишається незмінним. Новий масив ascendingScores містить масив чисел, що відсортований за зростанням.
+
+// const scores = [61, 19, 74, 35, 92, 56];
+// const ascendingScores = scores.toSorted();
+
+// console.log(scores); // [61, 19, 74, 35, 92, 56]
+// console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
+
+// Оскільки за замовчуванням перед сортуванням метод toSorted() приводить усі елементи масиву до рядків, то фактично елементи сортуються як рядки,
+// тобто на основі їхніх значень у таблиці Unicode.Стандартне сортування чисел виглядає незвично, коли ми думаємо про числа, але зрозуміло, якщо знати,
+// що числа були перетворені на рядки.
+
+// const scores = [27, 2, 41, 4, 7, 3, 75];
+
+// console.log(scores.toSorted()); // [2, 27, 3, 4, 41, 7, 75]
+
+// При такому сортуванні рядки порівнюються за символами зліва направо, тобто спочатку порівнюються рядки 2 і 27. Перший символ 2 у них однаковий,
+// але рядок 2 містить лише 1 символ, тому він менший, ніж рядок 27, і йде першим.
+// Потім порівнюються рядки 27 і 3. Перший символ у рядку 3 більший за перший символ 2 у рядку 27, тому 3 йде після 27.
+
+//*  Способи задати власний порядок сортування розглянемо в наступному розділі.
+
+//?   Масив рядків
+
+// Масив рядків сортується за алфавітом.
+
+// const students = ["Jacob", "Artemis", "Solomon", "Adrian", "Kai", "Ganymede"];
+
+// console.log(students.toSorted()); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
+
+// Водночас порядковий номер великих літер менший, ніж у малих.
+
+// const letters = ["b", "B", "a", "A", "c", "C"];
+
+// console.log(letters.toSorted()); // ["A", "B", "C", "a", "b", "c"]
+
+// Що повертає метод toSorted()?
+
+// Об’єкт
+//* Масив
+// Довільне значення
+// Result
+
+//* І це правильна відповідь! Метод toSorted() повертає відсортований масив.
+
+// Чи змінює метод toSorted() масив, до якого застосовується?
+
+// Так
+//* Ні
+// Result
+
+//* Саме так! Метод toSorted() не змінює вихідний масив.
+
+//todo     Задача:
+
+// Еhe variable releaseDates is an array of numbers representing the years of publication of books.
+// The variable authors is an array of strings representing the authors of the books.
+
+// Complete the code in such a way that the variable ascendingReleaseDates becomes a copy of the releaseDates array sorted in ascending order, 
+// while the variable alphabeticalAuthors becomes a copy of the authors array sorted in alphabetical order.Use the toSorted() method.
+
+// The variable releaseDates is declared.
+// The value of the releaseDates variable is an array [2016, 1967, 2008, 1984, 1973, 2012, 1997].
+// The variable authors is declared.
+// The value of the authors variable is an array ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "John Green"].
+// The variable ascendingReleaseDates is declared.
+// The value of the ascendingReleaseDates variable is an array [1967, 1973, 1984, 1997, 2008, 2012, 2016].
+// The variable alphabeticalAuthors is declared.
+// The value of the alphabeticalAuthors variable is an array ["Bernard Cornwell", "John Green", "Robert Sheckley", "Tanith Lee"].
+// The toSorted() method was used.
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// const authors = [
+//   "Tanith Lee",
+//   "Bernard Cornwell",
+//   "Robert Sheckley",
+//   "Fyodor Dostoevsky",
+// ];
+
+// const ascendingReleaseDates = releaseDates.toSorted();
+
+// const alphabeticalAuthors = authors.toSorted();
+
+// console.log(ascendingReleaseDates); // [1967, 1973, 1984, 1997, 2008, 2012, 2016]
+// console.log(alphabeticalAuthors); // ["Bernard Cornwell", "Fyodor Dostoevsky", "Robert Sheckley", "Tanith Lee"]
+
+//?  Свій порядок сортування чисел
+
+// Для зазначення свого порядку сортування методу toSorted(compareFunction) потрібно передати колбек-функцію з двома параметрами.
+// Це функція порівняння (compare function), порядок сортування залежить від її результату. Метод toSorted() буде викликати її для двох довільних елементів.
+
+// array.toSorted((a, b) => {
+  // Callback function body
+// });
+// Параметри колбек-функції compareFunction(a, b):
+// a — перший елемент для порівняння.
+// b — другий елемент для порівняння.
+// Повертає:
+// 0, якщо a і b рівні;
+//* Сортування за зростанням
+
+// Якщо виклик compareFunction(a, b) повертає будь-яке негативне значення, тобто a менше b, сортування поставить a перед b.
+
+// const scores = [61, 19, 74, 35, 92, 56];
+// const ascendingScores = scores.toSorted((a, b) => a - b);
+// console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
+
+//* Сортування за спаданням
+
+// Якщо виклик compareFunction(a, b) повертає будь-яке позитивне значення, тобто b більше a, сортування поставить b перед a.
+
+// const scores = [61, 19, 74, 35, 92, 56];
+// const descendingScores = scores.toSorted((a, b) => b - a);
+// console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
+
+
+// Якщо виклик compareFunction(a, b) поверне 0, сортування залишить a і b незмінними по відношенню один до одного, але відсортує їх по відношенню до всіх інших елементів.
+// const scores = [61, 19, 74, 35, 92, 56];
+// const sameScores = scores.toSorted((a, b) => { 
+//   if (a === b) {
+//     return 0;
+//   }
+//   return a - b;  
+// });
+// console.log(sameScores); // [19, 35, 56, 61, 74, 92]
+
+//* Щоб показати, як елементи, які є рівними, залишаються на своїх позиціях один відносно одного, давай додамо повторювані значення до масиву:
+
+//* const scores = [61, 19, 74, 35, 92, 56, 35];
+
+//* const sameScores = scores.toSorted((a, b) => { 
+//*  if (a === b) {
+//*     return 0; // Якщо числа рівні, їх порядок між собою не зміниться
+//*  }
+//*  return a - b;  
+//* });
+
+//* console.log(sameScores);//[19, 35, 35, 56, 61, 74, 92]
+
+// Ось ключовий момент:
+// - Два `35` залишилися один відносно одного у тому ж порядку, як були в початковому масиві. Це забезпечує умова `return 0;`, яка гарантує, що рівні значення не змінюють порядок між собою.
+// - Решта чисел сортуються у звичному порядку через `a - b`.
+// Таким чином, якщо масив містить повторювані значення, вони залишаються на своїх позиціях **один відносно одного**, але загальна схема сортування працює як зазвичай. 😊 
+  
+// Зверни увагу, що при сортуванні масиву чисел і передачі в метод toSorted() колбек - функції, числа вже не будуть приводитися до рядків, тобто їх 
+// сортування буде очікуваним і звичним.
+
+//todo   Задача :  
+
+// The variable releaseDates is an array of numbers representing the years of publication of books.
+
+// The online library needs to display books sorted by their release date, either in ascending or descending order. 
+// Update the code so that the variable ascendingReleaseDates contains a copy of the releaseDates array sorted in ascending order, 
+// while the variable descendingReleaseDates contains a copy sorted in descending order.
+
+// Here’s the translation in native British English:
+
+// The variable releaseDates is declared.
+// The value of the variable releaseDates is the array
+// [2016, 1967, 2008, 1984, 1973, 2012, 1997].
+// The variable ascendingReleaseDates is declared.
+// The value of the variable ascendingReleaseDates is the array
+// [1967, 1973, 1984, 1997, 2008, 2012, 2016].
+// The variable descendingReleaseDates is declared.
+// The value of the variable descendingReleaseDates is the array
+// [2016, 2012, 2008, 1997, 1984, 1973, 1967].
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+// const ascendingReleaseDates = releaseDates.toSorted((a, b) => a - b);
+
+// const descendingReleaseDates = releaseDates.toSorted((a, b) => b - a);
+
+// console.log(ascendingReleaseDates); // [1967, 1973, 1984, 1997, 2008, 2012, 2016]
+// console.log(descendingReleaseDates); // [2016, 2012, 2008, 1997, 1984, 1973, 1967]
+
+//?   Свій порядок сортування рядків
+
+// Для сортування рядків в алфавітному порядку, за зростанням або спаданням, використовується метод рядків localeCompare().
+// firstString.localeCompare(secondString)
+// Він викликається на рядку, який потрібно порівняти (firstString) з тим, що був переданий йому як аргумент (secondString).
+
+// "a".localeCompare("b"); // -1
+// "b".localeCompare("a"); // 1
+// "a".localeCompare("a"); // 0
+// "b".localeCompare("b"); // 0
+
+// Повертає негативне значення, якщо firstString повинен бути перед secondString
+// Повертає позитивне значення, якщо firstString повинен бути після secondString
+// Якщо рядки однакові, повертається нуль і їх послідовність по відношенню один до одного не змінюється
+
+// Метод localeCompare() зручно використовувати для сортування рядків, оскільки метод toSorted() очікує такі самі значення від колбек-функції.
+
+// const students = ["Jacob", "Artemis", "Solomon", "Adrian", "Kai", "Ganymede"];
+
+// const inAlphabetOrder = students.toSorted((a, b) => a.localeCompare(b));
+// console.log(inAlphabetOrder); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
+
+// const inReversedOrder = students.toSorted((a, b) => b.localeCompare(a));
+// console.log(inReversedOrder); // [ "Solomon", "Kai", "Jacob", "Ganymede", "Artemis", "Adrian" ]
+
+// Який із колбеків використовується для сортування чисел?
+
+// (a, b) => a.localeCompare(b)
+//*  (a, b) => a - b
+// Result
+
+//* для зазначення свого порядку сортування чисел методу toSorted(compareFunction) потрібно передати колбек-функцію формату (a, b) => a - b
+
+// Який із колбеків використовується для сортування рядків?
+
+//* (a, b) => a.localeCompare(b)
+// (a, b) => a - b
+// Result
+
+//* Дуже добре! Для зазначення свого порядку сортування рядків методу toSorted(compareFunction) потрібно передати колбек-функцію формату (a, b) => a.localeCompare(b)
+
+//todo     Задача:
+
+// The variable authors is an array of strings representing book authors.
+
+// The online library needs to display books sorted by author in both alphabetical and reverse alphabetical order. Complete the code so that the variable authorsInAlphabetOrder contains a copy of the authors array sorted alphabetically, and the variable authorsInReversedOrder contains a copy sorted in reverse alphabetical order.
+
+// The variable authors is declared.
+// The value of the variable authors is an array
+// ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "John Green", "Howard Lovecraft"].
+// The variable authorsInAlphabetOrder is declared.
+// The value of the variable authorsInAlphabetOrder is an array
+// ["Bernard Cornwell", "John Green", "Howard Lovecraft", "Robert Sheckley", "Tanith Lee"].
+// The variable authorsInReversedOrder is declared.
+// The value of the variable authorsInReversedOrder is an array
+// ["Tanith Lee", "Robert Sheckley", "Howard Lovecraft", "John Green", "Bernard Cornwell"].
+// The method toSorted() is used.
+
+// const authors = [
+//   "Tanith Lee",
+//   "Bernard Cornwell",
+//   "Robert Sheckley",
+//   "Fyodor Dostoevsky",
+//   "Howard Lovecraft",
+// ];
+
+// const authorsInAlphabetOrder = authors.toSorted((a, b) => a.localeCompare.b);
+
+// const authorsInReversedOrder = authors.toSorted((a, b) => b.localeCompare.a);
+
+// console.log(authorsInReversedOrder); // ["Tanith Lee", "Robert Sheckley", "Fyodor Dostoevsky", "Howard Lovecraft", "Bernard Cornwell"]  
+// console.log(authorsInAlphabetOrder); // ["Bernard Cornwell", "Fyodor Dostoevsky", "Howard Lovecraft", "Robert Sheckley", "Tanith Lee"]
+
+//?  Сортування об'єктів
+
+// Під час роботи з масивом об'єктів сортування виконується за числовим або рядковим значенням певної властивості. 
+// Наприклад, у нас є група студентів з балами за тест.Необхідно відсортувати масив об'єктів за трьома різними сценаріями:
+
+// за зростанням кількості балів
+// за спаданням кількості балів
+// за ім'ям студента в алфавітному порядку
+
+// const students = [
+//   { name: "Mango", score: 83 },
+//   { name: "Poly", score: 59 },
+//   { name: "Ajax", score: 37 },
+//   { name: "Kiwi", score: 94 },
+// ];
+
+// const inAscendingScoreOrder = students.toSorted(
+//   (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+// );
+
+// const inDescendingScoreOrder = students.toSorted(
+//   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+// );
+
+// const inAlphabeticalOrder = students.toSorted((firstStudent, secondStudent) =>
+//   firstStudent.name.localeCompare(secondStudent.name)
+// );
+
+// console.log(inAscendingScoreOrder);
+
+// console.log(inDescendingScoreOrder);
+// console.log(inAlphabeticalOrder);
+//! Нотатки:
+// У цьому коді ми використовуємо метод `toSorted()` для сортування масиву об'єктів `students` за різними критеріями:
+// 1. `inAscendingScoreOrder` - сортує студентів за зростанням їхніх балів, використовуючи різницю між `score` першого і другого студента.
+// 2. `inDescendingScoreOrder` - сортує студентів за спаданням їхніх балів, використовуючи різницю між `score` другого і першого студента.
+// 3. `inAlphabeticalOrder` - сортує студентів в алфавітному порядку за їхніми іменами, використовуючи метод `localeCompare()` для порівняння рядків.
+
+//todo    Задача:
+
+// The array books contains an array of book objects, each of which has properties title, author, and rating.
+// Enhance the code in such a way that:
+
+// The variable sortedByAuthorName contains an array of books sorted by the author's name in alphabetical order.
+// The variable sortedByReversedAuthorName contains an array of books sorted by the author's name in reverse alphabetical order.
+// The variable sortedByAscendingRating contains an array of books sorted by ascending rating.
+// The variable sortedByDescendingRating contains an array of books sorted by descending rating.
+// The variable books is declared.
+// The value of the variable books is the original array of book objects.
+// The variable sortedByAuthorName is declared.
+// The value of the variable sortedByAuthorName is an array of books sorted by the author's name in alphabetical order.
+// The variable sortedByReversedAuthorName is declared.
+// The value of the variable sortedByReversedAuthorName is an array of books sorted by the author's name in reverse alphabetical order.
+// The variable sortedByAscendingRating is declared.
+// The value of the variable sortedByAscendingRating is an array of books sorted by ascending rating.
+// The variable sortedByDescendingRating is declared.
+// The value of the variable sortedByDescendingRating is an array of books sorted by descending rating.
+// The method toSorted() is used to iterate through the array books.
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     rating: 7.94,
+//   },
+//   {
+//     title: "Enemy of God",
+//     author: "Bernard Cornwell",
+//     rating: 8.67,
+//   },
+// ];
+
+// const sortedByAuthorName = books.toSorted((a, b) => a.author.localeCompare(b.author));
+// const sortedByReversedAuthorName = books.toSorted((a, b) => b.author.localeCompare(a.author));
+
+// const sortedByAscendingRating = books.toSorted((a, b) => a.rating - b.rating);
+
+// const sortedByDescentingRating = books.toSorted((a, b) => b.rating - a.rating);
+
+
+// console.log(sortedByAuthorName);
+// console.log(sortedByReversedAuthorName);
+// console.log(sortedByAscendingRating);
+// console.log(sortedByDescentingRating);
+
+//!       Ланцюжки методів
+
+// У нас є масив об'єктів з іменами, балами й відвідуваними предметами кожного студента.
+
+
+// const students = [
+//   { name: "Mango", score: 83, courses: ["mathematics", "physics"] },
+//   { name: "Poly", score: 59, courses: ["science", "mathematics"] },
+//   { name: "Ajax", score: 37, courses: ["physics", "biology"] },
+//   { name: "Kiwi", score: 94, courses: ["literature", "science"] },
+// ];
+
+// Необхідно отримати масив їхніх імен, відсортованих за зростанням балів за тест.
+
+// Для цього:
+
+// Відсортуємо масив методом toSorted(),
+// Після чого методом map() створимо масив значень властивості name з відсортованого масиву.
+
+// const sortedByAscendingScore = students.toSorted((a, b) => a.score - b.score);
+// const names = sortedByAscendingScore.map(student => student.name);
+
+// console.log(sortedByAscendingScore); // [{name: "Ajax", score: 37}, {name: "Poly", score: 59}, {name: "Mango", score: 83}, {name: "Kiwi", score: 94}]
+// console.log(names); // ["Ajax", "Poly", "Mango", "Kiwi"]
+
+
+// Проблема в тому, що в нас з'являються проміжні змінні після кожної операції, крім фінальної. Змінна sortedByAscendingScore — зайва. 
+// Вона необхідна тільки для зберігання проміжного результату.
+// Позбутися таких «мертвих» змінних можна за допомогою групування викликів методів у ланцюжки. 
+// Кожний наступний метод буде виконуватися на основі результату роботи попереднього.
+
+//*   const names = students
+//*     .toSorted((a, b) => a.score - b.score)
+//*     .map(student => student.name);
+
+//*   console.log(names); // ["Ajax", "Poly", "Mango", "Kiwi"]
+
+// На масиві викликаємо метод toSorted()
+// До результату роботи методу toSorted() застосовуємо метод map()
+// Змінній names присвоюється результат роботи методу map()
+
+// Отримаємо масив унікальних відвідуваних предметів, відсортований за алфавітом.
+
+// const uniqueSortedCourses = students
+//   .flatMap(student => student.courses)
+//   .filter((course, index, array) => array.indexOf(course) === index)
+//   .toSorted((a, b) => a.localeCompare(b));
+
+// console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
+
+
+
+// На вихідному масиві викликаємо flatMap() і робимо розгладжений масив усіх курсів
+// До результату методу flatMap() застосовуємо метод filter() для фільтрації унікальних елементів
+// *    Цей рядок **видаляє дублікати** з масиву `courses`. Давай розглянемо його детальніше:
+
+// *    const courses = ["biology", "science", "literature", "science", "mathematics", "biology", "physics"];
+// *    const uniqueCourses = courses.filter((course, index, array) => array.indexOf(course) === index);
+// *    console.log(uniqueCourses);
+// *    ### Як це працює:
+// *    1. **array.indexOf(course)** повертає **перший** індекс, де з'являється курс у масиві.
+// *    2. Якщо поточний `index` збігається з `indexOf(course)`, курс залишається.
+// 3. Якщо курс уже зустрічався раніше, тобто його `indexOf(course)` **не дорівнює** поточному `index`, він **відфільтровується**.
+// *    ### Що видаляється:
+// *    - У початковому масиві були повтори `"science"` та `"biology"`.
+// *    - Після фільтрації вони **залишилися тільки один раз**.
+
+// *    Результат:
+// *    ["biology", "science", "literature", "mathematics", "physics"]
+// *    Тепер масив містить **тільки унікальні значення**! 😊
+// *    Якщо хочеш побачити, які елементи були видалені, можна зробити окремий масив дублікатів:
+// *    const duplicateCourses = courses.filter((course, index, array) => array.indexOf(course) !== index);
+// *    console.log(duplicateCourses); // ["science", "biology"]
+// *    Цей код покаже саме **те, що було видалено**. Сподіваюся, це прояснило логіку! 🚀
+
+// На результаті методу filter() викликаємо toSorted()
+// Змінній uniqueSortedCourses присвоюється результат роботи методу toSorted()
+
+// Ланцюжок методів може бути довільної довжини, але зазвичай не більше 2-3 операцій.
+// По-перше, перебираючі методи використовуються для порівняно простих операцій над колекцією.
+// По-друге, виклик кожного наступного методу — це додаткове перебирання масиву, що за великої кількості може позначитися на продуктивності.
+
+//todo    Задача: 
+
+// The array books contains an array of book objects, each of which has properties title, author, and rating.
+
+// Extend the code in such a way that the variable names contains an array of author names in alphabetical order, whose book ratings are greater 
+// than the value of the variable MIN_BOOK_RATING.Use a chain of methods.
+
+// The variable books is declared.
+// The value of the variable books is the initial array of objects.
+// The variable MIN_BOOK_RATING is declared.
+// The value of the variable MIN_BOOK_RATING is the number 8.
+// The variable names is declared.
+// The value of the variable names is the array
+// ["Bernard Cornwell", "Howard Lovecraft", "Robert Sheckley"].
+// The variable names should be formed using the method chain filter, map, and toSorted, while no other variables should be declared.
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   {
+//     title: "The Dreams in the Witch House",
+//     author: "Howard Lovecraft",
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
+
+// const names = books
+//   .filter(book => book.rating > MIN_BOOK_RATING)
+//   .map(book => book.author)
+//   .toSorted((a, b) => a.localeCompare(b));
+
+// console.log(names); // ["Bernard Cornwell", "Howard Lovecraft", "Robert Sheckley"]
+//! Notes:
+// In this code, we use a chain of methods to filter, map, and sort the authors of books based on their ratings.
+// 1. The `filter()` method filters the books array to include only those books with a rating greater than `MIN_BOOK_RATING`.
+// 2. The `map()` method extracts the `author` property from each book object in the filtered array.
+// 3. The `toSorted()` method sorts the resulting array of author names in alphabetical order using the `localeCompare()` method.
+// This allows us to create a new array `names` that contains the names of authors whose books have a rating greater than 8, sorted alphabetically.
+// The final result is logged to the console, showing the sorted array of author names.
