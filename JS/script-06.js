@@ -2078,13 +2078,7 @@
 // об'єкті зберігається посилання на метод constructor класу, але це потрібно лише для внутрішніх механізмів класу і не має 
 // значення для нас.
 
-// Куди записуються оголошені методи класу?
-
-// У властивість [[Prototype]] екземпляра
-// У властивість prototype класу
-// На екземпляр класу
-
-// Тести: 
+//todo Тести: 
 
 //!  Куди записуються оголошені методи класу?
 
@@ -2328,12 +2322,12 @@
 //     this.#email = params.email;
 //   }
 
-//   // Геттер email
+  // Геттер email
 //   get email() {
 //     return this.#email;
 //   }
 
-//   // Сеттер email
+  // Сеттер email
 //   set email(newEmail) {
 //     this.#email = newEmail;
 //   }
@@ -2412,38 +2406,38 @@
 //     this.#price = params.price;
 //   }
 
-//   // Геттер для brand
+  // Геттер для brand
 //   get brand() {
 //     return this.#brand;
 //   }
 
-//   // Сеттер для brand
+  // Сеттер для brand
 //   set brand(newBrand) {
 //     this.#brand = newBrand;
 //   }
 
-//   // Геттер для model
+  // Геттер для model
 //   get model() {
 //     return this.#model;
 //   }
 
-//   // Сеттер для model
+  // Сеттер для model
 //   set model(newModel) {
 //     this.#model = newModel;
 //   }
 
-//   // Геттер для price
+  // Геттер для price
 //   get price() {
 //     return this.#price;
 //   }
 
-//   // Сеттер для price
+  // Сеттер для price
 //   set price(newPrice) {
 //     this.#price = newPrice;
 //   }
 // }
 
-// // ✅ Тестуємо клас
+// ✅ Тестуємо клас
 // const car1 = new Car({ brand: "Audi", model: "Q3", price: 36000 });
 
 // console.log(car1.brand); // Audi
@@ -2469,7 +2463,7 @@
 
 // console.log(MyClass.myProp); // "value"
 
-// // У екземпляра немає доступу до статичних властивостей класу.
+// У екземпляра немає доступу до статичних властивостей класу.
 
 // class MyClass {
 // 	static myProp = "value";
@@ -2544,9 +2538,11 @@
 
 // Refactor the Car class. Add a public static property maxPrice with a numeric value of 50000 — the maximum allowable price for a car.
 
-// Add a check to the price setter for the value of the newPrice parameter being passed. If it is greater than maxPrice, the setter does nothing; if it is less than or equal to maxPrice, it updates the car's price.
+// Add a check to the price setter for the value of the newPrice parameter being passed. If it is greater than maxPrice, the setter
+// does nothing; if it is less than or equal to maxPrice, it updates the car's price.
 
-// Below the class declaration, we have added instance initializations and method calls to demonstrate how the price getters and setters will be used.
+// Below the class declaration, we have added instance initializations and method calls to demonstrate how the price getters and 
+// setters will be used.
 
 // The Car class is declared.
 // The Car class contains a static property maxPrice.
@@ -2554,9 +2550,13 @@
 // The instance does not contain the property maxPrice.
 // In class Car, a getter price is declared.
 // In class Car, a setter price is declared.
-// Calling the setter price on an instance of the class, with an argument value less than the value of maxPrice, updates the property #price.
-// Calling the setter price on an instance of the class, with an argument value greater than the value of maxPrice, does not update the property #price.
-// class Car {
+// Calling the setter price on an instance of the class, with an argument value less than the value of maxPrice, updates the 
+// property  #price.
+// Calling the setter price on an instance of the class, with an argument value greater than the value of maxPrice, does 
+// not update the property #price.
+
+//
+//  class Car {
 //   static maxPrice = 50000; // Static property available only at the class level
 
 //   #price;
@@ -2565,9 +2565,9 @@
 //     this.#price = params.price;
 //   }
 
-//   get price() {
-//     return this.#price;
-//   }
+  // get price() {
+  //   return this.#price;
+  // }
 
 //   set price(newPrice) {
 //     if (newPrice <= Car.maxPrice) {
@@ -2578,7 +2578,7 @@
 //   }
 // }
 
-// // ✅ Testing the class
+// ✅ Testing the class
 // const audi = new Car({ price: 35000 });
 // console.log(audi.price); // 35000
 
@@ -2587,3 +2587,382 @@
 
 // audi.price = 51000; // ❌ Invalid, will trigger an error message
 // console.log(audi.price); // Still 49000, because setter blocked the update
+
+//!!!! Статичні методи
+
+// У класі можна оголосити не тільки методи майбутнього екземпляра, а й статичні методи.Статичні методи — це методи,
+//   доступні тільки класу.Вони можуть бути публічні та приватні.
+// Синтаксис оголошення статичних методів майже аналогічний статичним властивостям. Єдина відмінність — значенням буде метод.
+
+// class MyClass {
+//   static myMethod() {
+//     console.log("A static method");
+//   }
+// }
+
+// MyClass.myMethod(); // "A static method"
+
+// Додамо у клас User:
+// статичну властивість takenEmails для зберігання зайнятих пошт користувачів
+// статичний метод isEmailTaken, який перевіряє, чи доступна пошта
+// Під час ініціалізації екземпляра в конструкторі класу будемо додавати пошту в список зайнятих.
+
+// class User {
+//   static #takenEmails = [];
+
+//   static isEmailTaken(email) {
+//     return User.#takenEmails.includes(email);
+//   }
+
+//   #email;
+
+//   constructor(params) {
+//     this.#email = params.email;
+//     User.#takenEmails.push(params.email);
+//   }
+// }
+
+// const mango = new User({ email: "mango@mail.com" });
+
+// console.log(User.isEmailTaken("poly@mail.com")); // false
+// console.log(User.isEmailTaken("mango@mail.com")); // true
+// Особливість статичних методів
+// Під час їх виклику ключове слово this посилається на сам клас.Це означає, що статичний метод може отримати доступ до
+// статичних властивостей класу, але не до властивостей екземпляра.Це логічно, адже статичні методи викликає сам клас, а не його
+// екземпляри.
+
+// Add a public static method checkPrice(price) to the Car class, which accepts the price of the car.The method should compare 
+// the value of the parameter price with the private static property maxPrice.
+
+// If the price of the car exceeds the maximum, the method should return the string "Error! Price exceeds the maximum".
+// Otherwise, the method should return the string "Success! Price is within acceptable limits".
+// Below the class declaration, we have added the initialization of an instance and method calls to demonstrate how 
+// the method checkPrice(price) will be used.
+
+// The class Car is declared.
+// The class Car contains a static method checkPrice(price).
+// The call Car.checkPrice(36000) returns the string "Success! Price is within acceptable limits".
+// The call Car.checkPrice(18000) returns the string "Success! Price is within acceptable limits".
+// The call Car.checkPrice(64000) returns the string "Error! Price exceeds the maximum".
+// The call Car.checkPrice(57000) returns the string "Error! Price exceeds the maximum".
+
+
+// class Car {
+//   static #maxPrice = 50000;
+
+//   constructor(params) {
+//     this.price = params.price;
+//   }
+
+//   static checkPrice(price) {
+//     return price > this.#maxPrice
+//       ? "Error! Price exceeds the maximum"
+//       : "Success! Price is within acceptable limits";
+
+// }
+// }
+
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+//!!! Наслідування класів
+
+// Ключове слово extends дозволяє реалізувати наслідування класів, коли один клас(дочірній, похідний) наслідує 
+// властивості й методи іншого класу(батьківського).
+// Розгляньмо приклад:
+
+class Parent {}
+
+class Child extends Parent {
+  // ...
+}
+
+// У виразі class Child extends Parent дочірній клас Child наслідує (розширює) від батьківського класу Parent.
+// Це означає, що ми можемо оголосити базовий клас, який зберігає загальні характеристики й методи для групи
+// похідних класів, які наслідують властивості й методи батьківського, але також додають свої унікальні.
+//   Уявімо, у застосунку є користувачі з різними ролями: адміністратор, копірайтер, контент-менеджер тощо.
+// У кожного типу користувача є набір загальних характеристик, наприклад, пошта і пароль, але також є й унікальні.
+// Створивши незалежні класи для кожного типу користувача, ми отримаємо дублювання загальних властивостей і методів.
+// Якщо необхідно змінити, наприклад, назву властивості, доведеться проходити по всіх класах, а це незручно й вимагає багато часу.
+// Замість цього можна:
+// створити загальний клас User, який буде зберігати набір загальних властивостей і методів
+// після чого створити класи для кожного типу користувача, які наслідують цей набір від класу User
+// За потреби змінити щось спільне, достатньо буде змінити тільки код класу User.
+// class User {
+//   #email;
+
+//   constructor(email) {
+//     this.#email = email;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// class ContentEditor extends User {
+// 	// Тіло класу ContentEditor
+// }
+
+// const editor = new ContentEditor("mango@mail.com");
+// console.log(editor); // { #email: "mango@mail.com" }
+// console.log(editor.email); // "mango@mail.com"
+
+// Клас ContentEditor наслідує від класу User його конструктор, геттер і сеттер email, а також приватну властивість #email.
+
+//todo Test :
+
+// Яке ключове слово використовується для успадкування класів?
+
+// inherit
+//*  extends
+// import
+// parent
+// Result
+
+//*   Чудово, що ти це пам’ятаєш! Для успадкування класів використовується ключове слово extends.
+
+//todo  Задача:
+
+// In the application, an administrator is required with the ability to add users' emails to a blacklist.
+
+// Declare the class Admin, which inherits from the class User.
+// Add a public static property role (access level) to the class Admin, the value of which is an object {BASIC: "basic", SUPERUSER: "superuser"}.
+// The class Admin has been declared.
+// The class Admin inherits from the class User.
+// The class Admin contains a public static property role.
+// Accessing Admin.role.BASIC returns the string "basic".
+// Accessing Admin.role.SUPERUSER returns the string "superuser".
+
+// class User {
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser"
+//   };
+
+// }
+
+// console.log(Admin.role.BASIC); // "basic"
+// console.log(Admin.role.SUPERUSER); // "superuser"
+
+//!!! Конструктор дочірнього класу
+
+// У конструкторі дочірнього класу необхідно викликати спеціальну функцію super(args) — це псевдонім конструктора батьківського класу.
+// В іншому випадку при спробі звернутися до this у конструкторі дочірнього класу виникне помилка.
+// Під час виклику конструктора батьківського класу передаємо необхідні йому аргументи для ініціалізації властивостей.
+
+// class User {
+//   #email;
+
+//   constructor(email) {
+//     this.#email = email;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// class ContentEditor extends User {
+//   constructor(params) {
+//     // Виклик конструктора батьківського класу User
+//     super(params.email);
+
+//     this.posts = params.posts;
+//   }
+// }
+
+// const editor = new ContentEditor({
+// 	email: "mango@mail.com",
+// 	posts: []
+// });
+// console.log(editor); // { #email: "mango@mail.com", posts: [] }
+// console.log(editor.email); // "mango@mail.com"
+
+//todo Test:
+
+//*  Що буде. якщо не викликати super у конструкторі дочірнього класу?
+
+// Буде помилка при спробі доступу до this у його методах
+//* Буде помилка при спробі доступу до this у його конструкторі
+// Буде помилка під час успадкування класу
+// Result
+
+// Усе так! Якщо не викликати super у конструкторі дочірнього класу, при спробі звернутися до this у конструкторі дочірнього
+// класу виникне помилка.
+
+//todo  Задача:
+
+// Add a constructor method to the Admin class that accepts one parameter, params, which is a settings object with two properties: email and access. Add a public property access to the Admin class, the value of which will be passed during the constructor call.
+
+// To demonstrate how the Admin class will be used, we have added an instance initialization below the class declaration.
+
+// The Admin class has been declared.
+// The Admin class extends the User class.
+// The Admin class contains a public static property role.
+// The Admin class contains a constructor method with the parameter params.
+// In the Admin class, the constructor calls the parent class constructor for the email property.
+// Accessing Admin.role.BASIC returns the string "basic".
+// Accessing Admin.role.SUPERUSER returns the string "superuser"
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+// constructor(params) {
+//   super(params.email); // Calls the User constructor to initialize email
+//   this.access = params.access; // Adds access property
+// }
+// }
+
+// const mango = new Admin({
+// email: "mango@mail.com",
+// access: Admin.role.SUPERUSER,
+// });
+
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+//!!!  Методи дочірнього класу
+
+// Дочірній клас може використовувати методи та властивості батьківського класу.Крім цього, у дочірньому класі можна
+// оголошувати методи, які будуть доступні тільки його екземплярам.
+// Уявімо, що вище є оголошення класу User
+
+// class ContentEditor extends User {
+//   constructor(params) {
+//     super(params.email);
+//     this.posts = params.posts;
+//   }
+
+//   addPost(post) {
+//     this.posts.push(post);
+//   }
+// }
+
+// const editor = new ContentEditor({
+// 	email: "mango@mail.com",
+// 	posts: []
+// });
+
+// console.log(editor); // { #email: "mango@mail.com", posts: [], addPost: f }
+
+// editor.addPost("post-1");
+// editor.addPost("post-2");
+// console.log(editor.posts); // ['post-1', 'post-2']
+
+// У прикладі бачимо, що ContentEditor успадковує клас User.
+// User — це базовий клас, який має приватну властивість #email.
+// ContentEditor розширює клас User і має власну властивість posts.Клас ContentEditor також має метод addPost,
+// який дозволяє додавати нові повідомлення до posts.
+// Метод addPost — це метод дочірнього класу ContentEditor.Він буде доступний тільки екземплярам ContentEditor.
+
+// todo  Задача:
+
+// Add the following properties and methods to the Admin class.
+
+// A public property blacklistedEmails for storing the blacklist of user email addresses. The default value is an empty array.
+// A public method blacklist(email) for adding an email to the blacklist. The method should add the value of the email parameter to the array stored in the blacklistedEmails property.
+// A public method isBlacklisted(email) for checking if an email is in the blacklist. The method should check for the presence of the email parameter value in the array stored in the blacklistedEmails property and return true or false.
+// After the class declaration, we have added instance initialisation and method calls in the order in which your code will be tested. Please do not change anything there.
+
+// The Admin class has been declared.
+// The Admin class extends the User class.
+// The Admin class contains a public property blacklistedEmails.
+// The Admin class contains a public method blacklist.
+// The Admin class contains a public method isBlacklisted.
+// After calling mango.blacklist("poly@mail.com"), the value of the property blacklistedEmails is the array ["poly@mail.com"].
+// Calling mango.isBlacklisted("mango@mail.com") returns false.
+// Calling mango.isBlacklisted("poly@mail.com") returns true.
+
+  // class User {
+  //   email;
+  
+  //   constructor(email) {
+  //     this.email = email;
+  //   }
+  
+  //   get email() {
+  //     return this.email;
+  //   }
+  
+  //   set email(newEmail) {
+  //     this.email = newEmail;
+  //   }
+  // }
+  // class Admin extends User {
+  //   static role = {
+  //     BASIC: "basic",
+  //     SUPERUSER: "superuser",
+  //   };
+  
+  //   constructor(params) {
+  //     super(params.email);
+  //     this.access = params.access;
+  //     this.blacklistedEmails = []; // Initialize an empty array for blacklisted emails
+  //   }
+  //   blacklist(email) {
+  //     this.blacklistedEmails.push(email); // Add email to blacklist
+  //   }
+  
+  //   isBlacklisted(email) {
+  //     return this.blacklistedEmails.includes(email); // Check if email is in blacklist
+  //   }
+  // }
+  
+  // const mango = new Admin({
+  //   email: "mango@mail.com",
+  //   access: Admin.role.SUPERUSER,
+  // });
+  
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.access); // "superuser"
+  
+  // mango.blacklist("poly@mail.com");
+  // console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  // console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
+  
