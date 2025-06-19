@@ -717,5 +717,514 @@
 //*    Використовуй властивість element.innerHTML для додавання тільки у разі,
 //*    — коли елемент element порожній або
 //*    — якщо потрібно повністю замінити вміст element
+//todo    Test:
+// Що робить властивість innerHTML у JavaScript?
+
+// Встановлює або отримує атрибути елемента.
+//* Встановлює або отримує HTML-вміст елемента.
+// Змінює CSS-стилі елемента.
+// Забороняє взаємодію з HTML-елементами.
+// Result
+
+//* І це правильна відповідь! Властивість innerHTML у JavaScript встановлює або отримує HTML-вміст елемента.
+
+// Який тип даних повертає властивість innerHTML?
+
+// Число (number)
+//* Рядок (string)
+// Масив (array)
+// Об'єкт (object)
+// Result
+
+//* Так, ти все знаєш! Властивість innerHTML повертає рядок (string).
+
+//!! Метод insertAdjacentHTML()
+
+// Метод insertAdjacentHTML() — це сучасний метод для додавання рядка з HTML - тегами перед,
+// після або всередину елемента.Він вирішує проблему innerHTML з повторною серіалізацією вмісту елемента
+// під час додавання розмітки до вже існуючої.
+
+// element.insertAdjacentHTML(position, string)
+// Аргумент position — це рядок, який визначає позицію щодо елемента element. Він приймає одне з чотирьох значень.
+
+//*   "beforebegin" — перед element
+//*   "afterbegin" — всередині element, перед усіма дітьми
+//*   "beforeend" — всередині element, після усіх дітей
+//*   "afterend" — після element
+
+//?  Значення "beforebegin" і "afterend" працюють тільки тоді, коли element вже знаходиться в DOM - дереві.
+// Обмеження зумовлене тим, що неможливо дізнатися, куди вставляти розмітку, доти, доки елемент не буде
+// перебувати в DOM - дереві.
+
+//todo  Приклад 13:
+// У живому прикладі спочатку в HTML є список із трьох елементів. Ще три ми додаємо через JavaScript, використовуючи метод insertAdjacentHTML, так само як і заголовок списку.
+// const list = document.querySelector(".list");
+
+// const newTechnologies = ["React", "TypeScript", "Node.js"];
+// const markup = newTechnologies
+//   .map((technology) => `<li class="list-item new">${technology}</li>`)
+//   .join("");
+
+// list.insertAdjacentHTML("beforeend", markup);
+// list.insertAdjacentHTML("beforebegin", "<h2>Popular technologies</h2>");
+//todo  Test:
+// Що робить метод insertAdjacentHTML?
+
+// Створює новий HTML-елемент.
+//* Додає HTML-рядок у певну позицію внутрішнього HTML-вмісту елемента.
+// Видаляє HTML-вміст елемента.
+// Result
+
+//* Саме так! Метод insertAdjacentHTML вставляє HTML-рядок у певну позицію внутрішнього
+// HTML-вмісту елемента. Основні параметри, які приймає цей метод, визначають позицію вставки і HTML-рядок,
+// який необхідно вставити.
+
+// Якщо ти хочеш вставити HTML-код у кінець елемента, який уже є в DOM, яке значення першого аргументу потрібно використати?
+
+// "beforebegin"
+// "afterbegin"
+//* "beforeend"
+// "afterend"
+// Result
+
+//* Абсолютно точно! Для того щоб вставити HTML-код у кінець елемента, який уже є в DOM,
+// потрібно використовувати значення "beforeend" як перший аргумент для методу insertAdjacentHTML.
+//!! Події
+//?  Метод addEventListener()
+// Подія — це сигнал від браузера про те, що на вебсторінці щось відбулося.Існує багато видів подій:
+// події миші, події клавіатури, події елементів форм, зміни розмірів вікна, завантаження зображень,
+// буфера обміну, зміни стадії CSS анімації або переходу тощо.Події використовуються для реакції на
+// дії користувача й виконання коду, пов'язаного з певною подією.
+// Для того щоб елемент реагував на дії користувача, до нього необхідно додати слухача події та
+// визначити йому обробника.
+// Слухач події — це механізм, який "слухає" або "очікує" на виникнення певної події. Метод addEventListener() додає слухача події на елемент.
+// element.addEventListener(event, handler, options)
+// Аргументи методу:
+
+//  event — рядок, що містить ім'я події, наприклад, "click"
+// handler — колбек-функція, яка буде викликана під час настання події
+// options — необов'язковий об'єкт параметрів із розширеними налаштуваннями
+// Давай розглянемо приклад. У тебе на сайті є кнопка для перегортання галереї зображень.
+// 1.В HTML є кнопка з класом my-button.
+// <button class="my-button">Next</button>
+// 2.Щоб галерея горталась, тобі потрібно в JavaScript коді отримати посилання на елемент кнопки й додати на нього слухача події кліку.
+// const button = document.querySelector(".my-button");
+// button.addEventListener("click", () => {
+//   console.log("The button was pressed and now the next image will appear");
+// });
+// У виклик addEventListener() першим аргументом ми передали ім’я події "click", другим — функцію - обробник
+// подій(event handler) — () => { console.log("...") }. Кожного разу, коли на елементі button відбуватиметься
+// подія "click", ця колбек - функція буде виконуватися й виводити в консоль повідомлення "The button was pressed
+// and now the next image will appear".
+// Для колбека можна використовувати не анонімну, а окрему функцію, передаючи на неї посилання, як це
+// реалізовано у прикладі нижче.Іменована функція підвищує читабельність коду.
+// const button = document.querySelector(".my-button");
+
+// const handleClick = () => {
+//   console.log("The button was pressed and now the next image will appear");
+// };
+
+// button.addEventListener("click", handleClick);
+// На одному елементі може бути будь - яка кількість обробників подій, навіть подій одного типу.
+// Колбек - функції будуть викликатися в порядку їхньої реєстрації в коді.
+//todo Приклад 14
+// const singleBtn = document.querySelector("#single");
+
+// const handleClick = () => {
+//   console.log("click event listener callback");
+// };
+
+// singleBtn.addEventListener("click", handleClick);
+
+// // ===============================================
+// const multiBtn = document.querySelector("#multiple");
+
+// const firstCallback = () => {
+//   console.log("First callback!");
+// };
+// const secondCallback = () => {
+//   console.log("Second callback!");
+// };
+// const thirdCallback = () => {
+//   console.log("Third callback!");
+// };
+
+// multiBtn.addEventListener("click", firstCallback);
+// multiBtn.addEventListener("click", secondCallback);
+// multiBtn.addEventListener("click", thirdCallback);
+
+//! Метод removeEventListener()
+// Метод removeEventListener() видаляє слухача події з елемента.
+// Аргументи аналогічні методу addEventListener():
+
+// element.removeEventListener(event, handler, options)
+// Для того щоб мати можливість видаляти слухача події з елемента через removeEventListener,
+// важливо використовувати ту саму функцію - обробник, яка була призначена в addEventListener.
+// З цієї причини рекомендовано для обробників подій використовувати іменовані функції, які можна
+// легко передавати як аргументи.
+
+// const button = document.querySelector(".my-button");
+
+// const handleClick = () => {
+//   console.log("The button was pressed and now the next image will appear");
+// };
+
+// button.addEventListener("click", handleClick);
+
+// Розбери живий приклад, у якому на кнопку з текстом Click me додається й видаляється слухач
+// події іншими двома кнопками. При кліках по кнопках у консоль розробника виводяться повідомлення.
+//todo Приклад 15
+// Test :
+// Як видалити обробник події myFunction з елемента myElement для події click?
+
+// removeEventListener(myElement, "click", myFunction)
+//* myElement.removeEventListener("click", myFunction)
+// click.removeEventListener(myElement, myFunction);
+// Result
+
+//* І це правильна відповідь!
+
+//! Об'єкт події
+// Для обробки події недостатньо знати, що подія — це клік або натискання клавіші.Розробнику можуть
+// знадобитися інші деталі, а саме: елемент, на якому відбулася подія, його поточне значення текстового поля,
+// вбудовані методи тощо.
+// Кожна подія — це об'єкт, який містить інформацію про деталі події та автоматично передається першим
+// аргументом в обробник події.Усі події відбуваються з базового класу Event.
+// const handleClick = event => {
+//   console.log(event);
+// };
+
+// button.addEventListener("click", handleClick);
+// Параметр event — це і є об'єкт події, який автоматично передається першим аргументом під час
+// виклику колбек - функції.Ми можемо називати його як завгодно, але, як правило, його оголошують як
+// e, evt або event.
+// Деякі властивості об'єкта події:
+// event.type — тип події.
+//  event.currentTarget — елемент, на якому виконується обробник події.
+//todo  Приклад 16
+// Відкрий живий приклад і подивись на об’єкт події в консолі розробника при кліку.
+// const button = document.querySelector(".btn");
+
+// const handleClick = (event) => {
+//   console.log("event: ", event);
+//   console.log("event type: ", event.type);
+//   console.log("currentTarget: ", event.currentTarget);
+// };
+
+// button.addEventListener("click", handleClick);
+//todo  Test :
+// Що являє собою об'єкт події?
+
+// Він містить дані про об'єкт, до якого прив'язана подія.
+//* Він містить інформацію про саму подію, таку як тип події і об'єкт, що викликав подію.
+// Він містить усі об'єкти на вебсторінці.
+// Result
+
+//* Правильно, об'єкт події містить інформацію про саму подію, таку як тип події і об'єкт, що викликав подію.
+// Як можна отримати доступ до об'єкта події в обробнику події?
+
+// Він завжди міститься в глобальній змінній event.
+//* Він автоматично передається як аргумент у функцію обробника події.
+// Його можна отримати за допомогою методу getEvent().
+// Це не можливо, об'єкт події є приватним і недоступним для користувача.
+// Result
+
+//* І це правильна відповідь! Об'єкт події автоматично передається як аргумент у функцію обробника події.
+//! Події клавіатури
+// Існує дві основні події клавіатури:
+// keydown — подія, що відбувається при натисканні клавіші
+// keyup — подія, що відбувається, коли клавішу відпустили
+// На відміну від інших подій, події клавіатури обробляються на документі, а не на конкретному елементі.
+// Об'єкти подій клавіатури походять від базового класу KeyboardEvent.
+
+// document.addEventListener("keydown", event => {
+//   console.log("Keydown: ", event);
+// });
+
+// document.addEventListener("keyup", event => {
+//   console.log("Keyup: ", event);
+// });
+
+// Події keydown і keyup спрацьовують при натисканні будь - якої клавіші, включно зі службовими
+// (Ctrl, ShiftAltEscape тощо).
+// На практиці переважно обробляють тільки подію keydown, оскільки вона відбувається швидше за keyup і
+// користувач раніше бачить результат натискання.
+//todo  Test:
+// Чому на практиці під час роботи з подіями клавіатури прослуховують подію keydown?
+
+// Тому що це головна подія клавіатури
+// Вона спрацьовує частіше, тому можна обробити введення більш точно
+//* Вона спрацьовує раніше і можна швидше обробити введення користувача
+// Result
+
+//* Саме так! Подія keydown спрацьовує раніше, ніж інші події клавіатури.Це дозволяє реагувати на
+// натискання клавіші відразу після того, як користувач натиснув її, без очікування на відпускання клавіші.
+
+//! Властивості key і code
+
+// Властивість об’єкта події key повертає символ, згенерований натисканням клавіші на клавіатурі.
+// Ця властивість враховує:
+// стан клавіш-модифікаторів, наприклад Shift
+// поточну мову
+// Властивість об’єкта події code повертає код фізичної клавіші на клавіатурі й не залежить від мови та
+// стану клавіш - модифікаторів.
+
+// document.addEventListener("keydown", event => {
+//   console.log("key: ", event.key);
+//   console.log("code: ", event.code);
+// });
+// todo Приклад 17
+// Код у живому прикладі створює простий журнал подій для подій "keydown" і "keyup”.
+// Клікни мишею по
+// вікну з прикладом, щоб навести на нього фокус.Відстеження подій клавіатури вже знаходиться на елементі
+// document.Надрукуй щось на клавіатурі, щоб побачити результат їх обробки.
+
+// const clearLogBtn = document.querySelector(".js-clear");
+// const logList = document.querySelector(".log-list");
+// let keypressCounter = 1;
+
+// console.log(clearLogBtn)
+
+// document.addEventListener("keydown", logMessage);
+// document.addEventListener("keyup", logMessage);
+// clearLogBtn.addEventListener("click", reset);
+
+// function logMessage({ type, key, code }) {
+//   const markup = `<div class="log-item">
+//     <span class="chip">${keypressCounter}</span>
+//     <ul>
+//       <li><b>Event</b>: ${type}</li>
+//       <li><b>Key</b>: ${key}</li>
+//       <li><b>Code</b>: ${code}</li>
+//     </ul>
+//   </div>`;
+
+//   logList.insertAdjacentHTML("afterbegin", markup);
+
+//   if (type === "keyup") {
+//     incrementKeypressCounter();
+//   }
+// }
+
+// function reset() {
+//   keypressCounter = 1;
+//   logList.innerHTML = "";
+// }
+
+// function incrementKeypressCounter() {
+//   keypressCounter += 1;
+// }
+
+//!!!! Події елементів форм
+//? Подія submit
+// Відправлення форми відбувається:
+// при кліку на кнопку з атрибутом type="submit"
+// Або
+// при натисканні клавіші Enter під час перебування в будь - якому її текстовому полі форми
+// Подія submit відбувається безпосередньо на формі(тег form), тому обробник подій слід встановлювати
+// саме на ній.
+
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", event => {
+// 	// ...
+// });
+
+// Деякі події викликають дію браузера, вбудовану за замовчуванням як реакція на певний тип події. Наприклад, клік на посиланні ініціює перехід на нову адресу, зазначену в href, а відправлення форми перезавантажує сторінку.
+// Найчастіше ця поведінка небажана і її необхідно скасувати. Для скасування дії браузера за замовчуванням в об'єкта події є стандартний метод preventDefault().
+
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", event => {
+// 	event.preventDefault();
+// });
+
+// Подію submit можна застосувати для валідації(перевірки) форми перед відправленням, оскільки на
+// об'єкті події існує багато корисних властивостей, пов'язаних з елементами форми.
+//todo  ПРИКАД 18
+// const registerForm = document.querySelector(".form");
+
+// registerForm.addEventListener("submit", handleSubmit);
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const form = event.target;
+//   const login = form.elements.login.value;
+//   const password = form.elements.password.value;
+  
+//   if (login === "" || password === "") {
+//     return console.log("Please fill in all the fields!");
+//   }
+
+//   console.log(`Login: ${login}, Password: ${password}`);
+//   form.reset();
+// }
+// Властивість elements DOM-елемента форми містить об'єкт з посиланнями на всі її елементи, які мають атрибут name. Саме тому в прикладі ми отримуємо значення полів, звертаючись до event.target.elements.login.value і event.target.elements.password.value.
+//todo Test
+
+// Яким чином можна скасувати дії браузера за замовчуванням під час обробки події submit?
+
+// Встановити властивість event.preventSubmit на true
+//* Викликати метод event.preventDefault() в обробнику події
+// Неможливо скасувати дії браузера за замовчуванням
+// Result
+
+//* Саме так! Для скасування дії браузера за замовчуванням в об'єкта події є стандартний метод preventDefault().
+// Як отримати доступ до даних, введених користувачем у формі під час обробки події submit?
+
+// Використовуючи властивість form.data
+//* Звернутися до об'єкта форми через event.target і взяти значення полів форми
+// Використовуючи глобальну змінну formData
+// Result
+
+//* Чудово! Для отримання доступу до даних, введених користувачем у формі під час обробки події submit, використовується об'єкт події event і його властивість target. Значення полів можна отримати за їх іменами (атрибутами name).
+//?  Подія change
+// Подія change відбувається після зміни елемента форми.
+// Для текстових полів або textarea подія відбудеться не на кожному введенні символу, а після втрати
+// фокусу.Це не завжди зручно.Уяви, що користувач набирає щось у текстовому полі — подія відсутня.
+// Щойно фокус пропав, відбудеться подія change.
+// Для інших елементів, наприклад, select, чекбоксів і радіокнопок, подія change спрацьовує відразу під час вибору значення.
+// Зверни увагу на корисні властивості при роботі з елементом <select> у прикладі.
+// Визнач, що зберігається у властивостях value, selectedIndex і options.
+// todo Приклад 19
+// const select = document.querySelector(".pizza-select");
+// const textOutput = document.querySelector(".text-output");
+// const valueOutput = document.querySelector(".value-output");
+
+// select.addEventListener("change", setOutput);
+
+// function setOutput(event) {
+//   const selectedOptionValue = event.currentTarget.value;
+//   const selectedOptionIndex = event.currentTarget.selectedIndex;
+//   const selectedOptionText =
+//     event.currentTarget.options[selectedOptionIndex].text;
+
+//   textOutput.textContent = selectedOptionText;
+//   valueOutput.textContent = selectedOptionValue;
+// }
+
+//todo Test:
+// Коли відбувається подія change для текстового поля?
+
+// Під час введення кожного нового символу
+//* При втраті фокусу елементом
+// При отриманні фокусу елементом
+// Result
+
+//* Ти дуже уважний/-а! Для текстових полів і textarea подія відбудеться не на кожному введенні символу, а після втрати фокусу.
+//?  Подія input
+// Подія input відбувається тільки на текстових полях і textarea.
+
+// Вона створюється щоразу при зміні значення елемента, не чекаючи втрати фокусу.На практиці input — це найголовніша подія для роботи з текстовими полями форми.
+
+// todo Приклад 20
+// const textInput = document.querySelector(".text-input");
+// const output = document.querySelector(".output");
+
+// textInput.addEventListener("input", (event) => {
+//   output.textContent = event.currentTarget.value;
+// });
+
+// Порівняємо події input і change на текстових полях і textarea
+// Подія input:
+// відбувається при кожній зміні значення (при введенні або видаленні)
+// не залежить від втрати фокусу
+// Подія change:
+// відбувається після втрати фокусу за умови, що відбулася зміна значення в елементі
+//todo Test:
+// Якщо користувач вводить текст у текстове поле, яку з перелічених подій буде викликано найчастіше?
+
+// click
+//* input
+// change
+// submit
+// Result
+
+//* Правильна відповідь. Ти швидко вчишся! На практиці введення окремих символів відбувається частіше, ніж кліки на формі або втрата фокусу, отже, подія input буде відбуватися найчастіше при введенні тексту.
+// Подія focus і blur
+// Елемент отримує фокус під час кліку миші або переходу клавішею Tab.
+// Момент отримання і втрати фокусу дуже важливий. Отримуючи фокус, ми можемо завантажити дані для автозаповнення, почати відстежувати зміни тощо.
+// Під час втрати фокусу — перевірити введені дані.
+// подія focus відбувається під час фокусування на елементі
+// подія blur відбувається при втраті фокусу, наприклад, користувач клікає в іншому місці екрана
+// Активувати або скасувати фокус можна програмно. Для цього треба викликати в коді для елемента однойменні методи focus() і blur().
+// todo Приклад 21
+// Розглянь, як реалізуються події focus та blur у живому прикладі.
+// const textInput = document.querySelector(".text-input");
+// const setFocusBtn = document.querySelector('[data-action="set"]');
+// const removeFocusBtn = document.querySelector('[data-action="remove"]');
+
+// setFocusBtn.addEventListener("click", () => {
+//   textInput.focus();
+// });
+
+// removeFocusBtn.addEventListener("click", () => {
+//   textInput.blur();
+// });
+
+// textInput.addEventListener("focus", () => {
+//   textInput.value = "This input has focus";
+// });
+
+// textInput.addEventListener("blur", () => {
+//   textInput.value = "";
+// });
+
+// Фокус може бути тільки на одному елементі сторінки за одиницю часу. Поточний елемент, на якому знаходиться фокус, доступний як document.activeElement.
+
+// Більшість елементів не можуть отримати фокус. Наприклад, якщо клікнути по <div>, то фокусування на ньому не відбудеться, тому що це не інтерактивний елемент.
+//todo Test :
+// Коли відбувається подія blur?
+
+// При отриманні фокусу елементом
+// Під час введення в текстове поле
+//* При втраті фокусу елементом
+// Result
+
+//* Дуже добре! Подія blur відбувається при втраті фокусу, наприклад, коли користувач клікає в іншому місці екрана.
+//!! Підсумкова пам'ятка
+// Згадаємо та підсумуємо основні методи і властивості DOM-елементів, з якими ми будемо працювати далі:
 
 
+
+//? Пошук DOM-елементів
+
+//*  element.querySelector(selector) - повертає перший елемент, який відповідає вказаному CSS селектору всередині елемента element.
+//*  element.querySelectorAll(selector) - повертає всі елементи, які відповідають вказаному CSS селектору всередині елемента element.
+
+
+//? Властивості DOM-елемента
+
+//* element.textContent - містить текстовий вміст елемента element, ігноруючи всі теги HTML всередині.
+//* element.innerHTML - містить HTML-вміст елемента element.
+//* element.style - об'єкт, що містить вбудовані стилі елемента element, які можна змінювати динамічно з JavaScript.
+
+
+//? CSS класи на DOM-елементах
+
+//*   element.classList.contains(className) - перевіряє, чи міститься вказаний клас className на елементі element.
+//*   element.classList.add(className) - додає клас className до списку класів елемента element.
+//*   element.classList.remove(className) - видаляє клас className зі списку класів елемента element.
+//*   element.classList.toggle(className) - додає клас className, якщо його немає, або видаляє, якщо він вже присутній, на елементі element.
+//*   element.classList.replace(oldClassName, newClassName) - замінює клас oldClassName на newClassName в списку класів елемента element.
+
+
+//? Створення та видалення DOM-елементів
+
+//* document.createElement(tagName) - створює новий HTML-елемент з вказаним ім'ям тегу tagName.
+//* element.append(el) - додає вміст (або елемент) до кінця списку дочірніх елементів element.
+//* element.prepend(el) - додає вміст (або елемент) до початку списку дочірніх елементів element.
+//* element.remove() - видаляє DOM-елемент з DOM дерева.
+//* insertAdjacentHTML(position, string) - додає вказаний рядок HTML після, перед, всередині або перед вказаним елементом.
+
+
+//? Події
+
+// element.addEventListener(event, handler) - додає обробник події handler для події event на елемент element.
+//*  element.removeEventListener(event, handler) - видаляє обробник події handler для події event на елементі element.
+//*  keydown - подія, яка виникає, коли клавіша на клавіатурі натиснута.
+//*  submit - подія, яка виникає при відправці форми.
+//*  change - подія, яка виникає при зміні значення елемента форми.
+//*  input - подія, яка виникає при введенні даних в текстове поле.
+//*  focus - подія, яка виникає, коли елемент отримує фокус.
+//*  blur - подія, яка виникає, коли елемент втрачає фокус.

@@ -72,3 +72,184 @@ body {
 .article-text {
   color: tomato;
 } */
+/* Приклад 13 */
+/* body {
+  padding: 16px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-width: 2px;
+  border-style: dashed;
+}
+
+.list-item.new::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.list-item:nth-child(even) {
+  border-color: tomato;
+}
+
+.list-item:nth-child(odd) {
+  border-color: blueviolet;
+}
+
+.list-item:not(:last-child) {
+  margin-bottom: 8px;
+} */
+/*todo Приклад 14 */
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  text-align: center;
+} */
+/* todo Приклад 15 */
+/* body {
+  padding: 16px;
+  text-align: center;
+} */
+/* todo Прикалд 16 */
+/* body {
+  padding: 16px;
+  text-align: center;
+} */
+/* todo Приклад 17 */
+/* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.log-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.log-item {
+  flex-basis: calc((100% - 16px) / 2);
+  position: relative;
+  padding: 4px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.log-item > .chip {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  display: inline-flex;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+} */
+/* todo Приклад 18 */
+/* body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px;
+} */
+/*todo  Приклад 19 */
+/* body {
+  margin: 16px;
+}
+
+select {
+  padding: 4px;
+} */
+/*todo Приклад 20  */
+/* body {
+  margin: 16px;
+  line-height: 1.5;
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+input {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px;
+  font: inherit;
+  letter-spacing: inherit;
+} */
+/* todo Приклад 21 */
+body {
+  margin: 16px;
+  line-height: 1.5;
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+}
+
+input {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  display: inline-flex;
+  padding: 4px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
