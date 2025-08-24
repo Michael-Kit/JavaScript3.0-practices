@@ -560,6 +560,29 @@
 //!   У цьому випадку break не потрібен, тому що кожен case повертає значення за допомогою return.Коли JavaScript виконує
 // return, функція завершує свою роботу, і ніякий додатковий код(включаючи наступні case) не виконується.
 
+//* Задача з лекціі :
+
+
+// const options = 4;
+// let message = "";
+
+// switch(options) {
+//   case 1:
+//   message = "Ви зможете забрати ваш заказ завтра щ 12:00 у магазині!";
+//   break;
+//   case 2: 
+//   message = "Курєр доставить тлвар за вашею адересою!";
+//   break;
+//   case 3:
+//     message = "Наш менеджер звяжиться з вами!";
+//     break;
+//     default:
+//       message = "ваша заявка пуста";
+// }
+
+// console.log(message);
+
+
 //? Пам’ятка під час використання розгалужень
 //? Наразі тобі знайомі кілька способів, як зробити розгалуження. Під час вибору слід пам’ятати:
 //? Інструкція if є універсальною.Інструкції if…else і else…if використовуються, коли потрібно прописати декілька умов.
@@ -655,8 +678,7 @@
 // 	console.log("Block else")
 // }
 
-//todo^ У прикладі в умові інструкції if вказаний порожній рядок.
-//todo^ Порожній рядок приводиться до false. Отже, виконується код із блоку else.
+//todo  прикладі в умові інструкції if вказаний порожній рядок. Порожній рядок приводиться до false. Отже, виконується код із блоку else.
 
 //* А в цьому прикладі?
 
@@ -843,10 +865,29 @@
 //*      console.log(isNumberInRange(10, 30, 5)); // false
 //*      console.log(isNumberInRange(20, 50, 24)); // true
 //*      console.log(isNumberInRange(20, 50, 76)); // false
+// =====
+//* Задачки від лектора :
+
+/*
+ * Напиши скрипт, який перевіряє можливість відкрити чат з користувачем.
+ * Для цього, користувач має бути:
+ * - другом
+ * - онлайн
+ * - без режима не турбувати
+ */
+// const isOnline = true;
+// const isFriend = true;
+// const isDnD = false;
+
+// const canOpenCaht = isOnline && isFriend && !isDnD;
+
+// console.log("Can open", canOpenCaht);
+
 
 // Ось схожа задачка для тренування:
 // Завдання:
-// Створіть функцію `isEvenInRange(start, end, number)`, яка перевіряє, чи є число **парним** і чи знаходиться воно в заданому числовому діапазоні. У функції оголошуються три параметри:
+// Створіть функцію `isEvenInRange(start, end, number)`, яка перевіряє, чи є число **парним** і чи знаходиться воно в заданому числовому 
+// діапазоні. У функції оголошуються три параметри:
 
 // - `number` — число, яке перевіряється;
 // - `start` — початок числового діапазону;
@@ -963,6 +1004,21 @@
 // console.log(isEligibleForDiscount("student")); // true
 // console.log(isEligibleForDiscount("senior")); // true
 // console.log(isEligibleForDiscount("vip")); // false
+// ====
+
+// const sub = "vip"
+// let canConnect;
+
+// if( sub === "pro" || sub === "vip") {
+//   canConnect = true;
+
+// } else {
+//   canConnect = false;
+// }
+
+// const canConnect = sub === "pro" || sub === "vip"
+
+// console.log(canConnect);
 
 
 //!   Логічне «НІ» (!)
@@ -1083,14 +1139,14 @@
 // Так, усе правильно! Рядок "Poly" перетворюється на true, а оператор “НІ” змінює true на false.
 
 // ?Приклад коду
-//todo:  The toggleModalVisibility(isVisible) function toggles the display state of the modal window.The parameter isVisible expects
-//todo: a boolean true or false.Enhance the code of the function so that it returns the opposite value of this parameter.
+//The toggleModalVisibility(isVisible) function toggles the display state of the modal window.The parameter isVisible expects
+//a boolean true or false.Enhance the code of the function so that it returns the opposite value of this parameter.
 
-//todo: The toggleModalVisibility(isVisible) function is declared.
-//todo: A call to the toggleModalVisibility(true) function returns false.
-//todo: A call to the toggleModalVisibility(false) function returns true.
+//The toggleModalVisibility(isVisible) function is declared.
+//A call to the toggleModalVisibility(true) function returns false.
+//A call to the toggleModalVisibility(false) function returns true.
   
-//todo: The ! operator is used.
+//he ! operator is used.
 
 
 //   function toggleModalVisibility(isVisible) {
@@ -2186,11 +2242,12 @@
 
 // Який оператор дозволяє перервати виконання циклу та функції?
 
-// return
-// break
+//* return
+//  break
 // Result
 
-// Саме так! Оператор return перериває виконання одразу циклу і функції і дозволяє повернути результат у зовнішній код.
+//* Саме так! Оператор return перериває виконання одразу циклу і функції і дозволяє повернути результат у зовнішній код.
+
 // Tesk:
 // The findNumber(start, end, divisor) function accepts three parameters, which are integers.
 
@@ -2219,3 +2276,6 @@
 // console.log(findNumber(6, 9, 4)); // 8
 // console.log(findNumber(16, 35, 7)); // 21
  
+
+//* Задачки від лектора :
+

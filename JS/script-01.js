@@ -893,18 +893,48 @@
 // console.log(getElementWidth("60px", "12px", "8.5px")); // 101
 // console.log(getElementWidth("200px", "0px", "0px")); // 200
 
-
-
 // Залиш цей код для перевірки ментором.
-
-
-
 // На що буде звертати увагу ментор при перевірці:
-
-
-
 // Оголошена функція getElementWidth(content, padding, border)
 // Виклик getElementWidth("50px", "8px", "4px") повертає число 74
 // Виклик getElementWidth("60px", "12px", "8.5px") повертає число 101
 // Виклик getElementWidth("200px", "0px", "0px") повертає число 200
 // Виклик getElementWidth з будь якими-валідними аргументами повертає правильне значення
+
+// todo  Задача - Приклад розрахунку BMI разом з категоріями
+
+// function calcBMI(weight, height) {
+
+//  let numberweight = weight.replace(",", ".");//заміняємо кому на крапку
+//  numberweight = Number.parseFloat(numberweight);//  перетворюємо в число
+//  const numberheight = Number.parseFloat(height);// перетворюємо в число
+//  console.log(numberheight);
+
+//  const bmi = numberweight / (numberheight ** 2);//(маса тіла ділиться на квадрат росту)
+//  const roundedBMI = bmi.toFixed(2);
+// //  return bmi.toFixed(2);  Залишаємо дві цифри за крапкою і виводиов чосло 
+
+//   // Визначення категорії
+//     let category = "";
+//     if (bmi < 18.5) {
+//         category = "Недостатня вага";
+//     } else if (bmi < 25) {
+//         category = "Нормальна вага";
+//     } else if (bmi < 30) {
+//         category = "Надмірна вага";
+//     } else if (bmi < 35) {
+//         category = "Ожиріння I ступеня";
+//     } else if (bmi < 40) {
+//         category = "Ожиріння II ступеня";
+//     } else {
+//         category = "Ожиріння III ступеня";
+//     }
+
+//     // Повернення результату
+//     return `Yours BMI: ${roundedBMI} — ${category}`;
+
+// }
+
+
+// const bmi = calcBMI("135,5", "1.8");
+// console.log(bmi);
